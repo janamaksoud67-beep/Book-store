@@ -1,0 +1,3035 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر كتب محمد حلاق | Mohammad Hallaq Bookstore</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --light-color: #f8f9fa;
+            --dark-color: #2c3e50;
+            --gray-color: #7f8c8d;
+            --success-color: #27ae60;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        
+        .logo i {
+            color: var(--accent-color);
+            font-size: 28px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 20px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: var(--border-radius);
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-links a.active {
+            color: var(--accent-color);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .cart-icon {
+            position: relative;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Language Switcher */
+        .language-switcher {
+            margin-right: 20px;
+        }
+        
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 5px 15px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* User Profile in Header */
+        .user-profile {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-left: 10px;
+            border: 2px solid var(--accent-color);
+            cursor: pointer;
+        }
+        
+        .user-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .user-menu {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            background: white;
+            min-width: 200px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 10px 0;
+            display: none;
+            z-index: 1000;
+        }
+        
+        .dropdown-menu.active {
+            display: block;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--dark-color);
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .dropdown-menu a:hover {
+            background: var(--light-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Books Categories */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 30px;
+            font-size: 32px;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        
+        .category {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 20px 30px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            min-width: 150px;
+        }
+        
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category i {
+            font-size: 36px;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        
+        .category.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .category.active i {
+            color: white;
+        }
+        
+        /* Books Grid */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .book-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .book-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .book-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .book-card:hover .book-image img {
+            transform: scale(1.05);
+        }
+        
+        .book-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 2;
+        }
+        
+        .book-slider {
+            display: flex;
+            transition: transform 0.5s;
+            height: 100%;
+        }
+        
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: background 0.3s;
+            z-index: 2;
+        }
+        
+        .slider-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        .slider-prev {
+            right: 15px;
+        }
+        
+        .slider-next {
+            left: 15px;
+        }
+        
+        .slider-controls {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+        }
+        
+        .slider-dot.active {
+            background-color: white;
+        }
+        
+        .book-info {
+            padding: 20px;
+        }
+        
+        .book-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .book-author {
+            color: var(--gray-color);
+            margin-bottom: 10px;
+        }
+        
+        .book-description {
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #555;
+            height: 60px;
+            overflow: hidden;
+        }
+        
+        .book-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .book-price {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .book-old-price {
+            text-decoration: line-through;
+            color: var(--gray-color);
+            font-size: 16px;
+            margin-left: 10px;
+        }
+        
+        .book-discount {
+            color: var(--success-color);
+            font-weight: bold;
+            background-color: rgba(39, 174, 96, 0.1);
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        
+        .book-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .availability {
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .available {
+            color: var(--success-color);
+        }
+        
+        .unavailable {
+            color: var(--secondary-color);
+        }
+        
+        /* Admin Controls */
+        .admin-controls {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 999;
+        }
+        
+        .admin-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            font-size: 20px;
+            transition: all 0.3s;
+        }
+        
+        .admin-btn:hover {
+            transform: scale(1.1);
+            background: var(--accent-color);
+        }
+        
+        .admin-panel {
+            position: fixed;
+            top: 0;
+            left: -400px;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: var(--shadow);
+            padding: 20px;
+            overflow-y: auto;
+            transition: left 0.3s;
+            z-index: 1001;
+        }
+        
+        .admin-panel.active {
+            left: 0;
+        }
+        
+        .admin-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 1000;
+        }
+        
+        .admin-overlay.active {
+            display: block;
+        }
+        
+        /* About Section */
+        .about-section {
+            background-color: white;
+            padding: 80px 0;
+            margin: 60px 0;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-form {
+            flex: 1;
+            background-color: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .contact-item i {
+            background-color: var(--accent-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            margin-left: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .whatsapp-btn {
+            background-color: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+        }
+        
+        /* Cart Section */
+        .cart-section {
+            padding: 80px 0;
+            min-height: 500px;
+        }
+        
+        .cart-container {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .cart-items {
+            flex: 2;
+        }
+        
+        .cart-summary {
+            flex: 1;
+            background-color: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .cart-item {
+            display: flex;
+            background-color: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+        
+        .cart-item-image {
+            width: 120px;
+            height: 150px;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            margin-left: 20px;
+        }
+        
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .cart-item-price {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            background-color: var(--light-color);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .quantity-input {
+            width: 50px;
+            text-align: center;
+            margin: 0 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+        }
+        
+        .remove-item {
+            color: var(--secondary-color);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .cart-summary h3 {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .summary-total {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--primary-color);
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        /* Login Section */
+        .login-section {
+            padding: 80px 0;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .login-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .login-form h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+        
+        .profile-preview {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 5px solid var(--light-color);
+            cursor: pointer;
+        }
+        
+        .profile-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Reviews Section */
+        .reviews-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .review-card {
+            background-color: var(--light-color);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .reviewer-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-left: 15px;
+        }
+        
+        .reviewer-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .review-stars {
+            color: #f1c40f;
+            margin-bottom: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Map */
+        .map-container {
+            height: 300px;
+            margin: 40px 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container,
+            .cart-container {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+            
+            .hero h2 {
+                font-size: 32px;
+            }
+            
+            .admin-panel {
+                width: 300px;
+                left: -300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                flex-direction: column;
+                background-color: var(--primary-color);
+                width: 100%;
+                text-align: center;
+                padding: 20px 0;
+                transition: right 0.3s;
+                box-shadow: var(--shadow);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding: 70px 0;
+            }
+            
+            .hero h2 {
+                font-size: 28px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .user-profile span {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .book-card {
+                margin: 0 auto;
+                max-width: 300px;
+            }
+            
+            .cart-item {
+                flex-direction: column;
+            }
+            
+            .cart-item-image {
+                width: 100%;
+                height: 200px;
+                margin-left: 0;
+                margin-bottom: 15px;
+            }
+            
+            .login-container {
+                padding: 30px 20px;
+            }
+            
+            .admin-panel {
+                width: 100%;
+                left: -100%;
+            }
+        }
+        
+        /* Page Sections */
+        .page-section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        
+        .page-section.active {
+            display: block;
+            opacity: 1;
+        }
+        
+        /* Visitor Counter */
+        .visitor-counter {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            font-size: 14px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        /* Book Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 40px 0;
+        }
+        
+        .pagination-btn {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .pagination-btn.active {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+        
+        .pagination-btn:hover:not(.active) {
+            background: var(--light-color);
+        }
+        
+        /* Book Search */
+        .book-search {
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            padding-right: 50px;
+        }
+        
+        .search-btn {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--gray-color);
+            font-size: 18px;
+            cursor: pointer;
+        }
+        
+        /* Manage Availability */
+        .availability-toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .toggle-slider {
+            background-color: var(--success-color);
+        }
+        
+        input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-book"></i>
+                <h1 id="store-title">متجر كتب محمد حلاق</h1>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="language-switcher">
+                <button class="lang-btn" id="langToggle">
+                    <i class="fas fa-globe"></i>
+                    <span id="currentLang">العربية</span>
+                </button>
+            </div>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active" data-section="home" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+                <li><a href="#books" class="nav-link" data-section="books" data-ar="الكتب" data-en="Books">الكتب</a></li>
+                <li><a href="#cart" class="nav-link" data-section="cart" data-ar="السلة" data-en="Cart">السلة <span class="cart-count">0</span></a></li>
+                <li><a href="#about" class="nav-link" data-section="about" data-ar="من نحن" data-en="About">من نحن</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact" data-ar="اتصل بنا" data-en="Contact">اتصل بنا</a></li>
+                <li><a href="#reviews" class="nav-link" data-section="reviews" data-ar="التقييمات" data-en="Reviews">التقييمات</a></li>
+                <li id="loginNavItem"><a href="#login" class="nav-link" data-section="login" data-ar="تسجيل الدخول" data-en="Login">تسجيل الدخول</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="page-section active">
+        <div class="hero">
+            <div class="container">
+                <h2 id="hero-title">مرحباً بكم في متجر كتب محمد حلاق</h2>
+                <p id="hero-text">اكتشف مجموعة رائعة من الكتب في مختلف المجالات: العلوم الاجتماعية، السياسة، القصص والروايات، تطوير الذات، علم النفس وغيرها الكثير. نحن نقدم أجمل الكتب بأفضل الأسعار.</p>
+                <a href="#books" class="btn" data-ar="استعرض الكتب" data-en="Browse Books">استعرض الكتب</a>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2 class="section-title" id="categories-title">فئات الكتب</h2>
+            <div class="categories">
+                <div class="category active" data-category="all">
+                    <i class="fas fa-book-open"></i>
+                    <h3 data-ar="جميع الكتب" data-en="All Books">جميع الكتب</h3>
+                </div>
+                <div class="category" data-category="psychology">
+                    <i class="fas fa-brain"></i>
+                    <h3 data-ar="علم النفس" data-en="Psychology">علم النفس</h3>
+                </div>
+                <div class="category" data-category="sociology">
+                    <i class="fas fa-users"></i>
+                    <h3 data-ar="علم الاجتماع" data-en="Sociology">علم الاجتماع</h3>
+                </div>
+                <div class="category" data-category="novels">
+                    <i class="fas fa-book-reader"></i>
+                    <h3 data-ar="روايات" data-en="Novels">روايات</h3>
+                </div>
+                <div class="category" data-category="selfdev">
+                    <i class="fas fa-user-check"></i>
+                    <h3 data-ar="تطوير الذات" data-en="Self Development">تطوير الذات</h3>
+                </div>
+                <div class="category" data-category="philosophy">
+                    <i class="fas fa-search"></i>
+                    <h3 data-ar="فلسفة" data-en="Philosophy">فلسفة</h3>
+                </div>
+                <div class="category" data-category="politics">
+                    <i class="fas fa-landmark"></i>
+                    <h3 data-ar="سياسية" data-en="Politics">سياسية</h3>
+                </div>
+                <div class="category" data-category="science">
+                    <i class="fas fa-flask"></i>
+                    <h3 data-ar="علوم" data-en="Science">علوم</h3>
+                </div>
+            </div>
+
+            <h2 class="section-title" id="featured-title">أجمل الكتب</h2>
+            
+            <div class="book-search">
+                <input type="text" class="search-input" id="bookSearch" placeholder="ابحث عن كتاب..." data-ar-placeholder="ابحث عن كتاب..." data-en-placeholder="Search for a book...">
+                <button class="search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            
+            <div class="books-grid" id="featuredBooks">
+                <!-- Featured books will be loaded here by JavaScript -->
+            </div>
+            
+            <div class="pagination" id="featuredPagination">
+                <!-- Pagination will be added here by JavaScript -->
+            </div>
+
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3293.3652039961247!2d35.84939331522435!3d34.42436918052089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1521f6f8d5d5b5b5%3A0x9c9c9c9c9c9c9c9c!2sTripoli%2C%20Lebanon!5e0!3m2!1sen!2slb!4v1629999999999!5m2!1sen!2slb" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Books Section -->
+    <section id="books" class="page-section">
+        <div class="container">
+            <h2 class="section-title" id="all-books-title">جميع الكتب</h2>
+            
+            <div class="book-search">
+                <input type="text" class="search-input" id="allBookSearch" placeholder="ابحث عن كتاب..." data-ar-placeholder="ابحث عن كتاب..." data-en-placeholder="Search for a book...">
+                <button class="search-btn" id="allSearchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            
+            <div class="books-grid" id="allBooks">
+                <!-- All books will be loaded here by JavaScript -->
+            </div>
+            
+            <div class="pagination" id="allBooksPagination">
+                <!-- Pagination will be added here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section id="cart" class="page-section">
+        <div class="container cart-section">
+            <h2 class="section-title" id="cart-title">سلة التسوق</h2>
+            <div class="cart-container">
+                <div class="cart-items" id="cartItems">
+                    <!-- Cart items will be loaded here by JavaScript -->
+                    <div class="empty-cart-message" id="emptyCartMessage">
+                        <p data-ar="سلة التسوق فارغة. أضف بعض الكتب من صفحة الكتب." data-en="Your cart is empty. Add some books from the books page.">سلة التسوق فارغة. أضف بعض الكتب من صفحة الكتب.</p>
+                        <a href="#books" class="btn" data-ar="استعرض الكتب" data-en="Browse Books">استعرض الكتب</a>
+                    </div>
+                </div>
+                
+                <div class="cart-summary">
+                    <h3 data-ar="ملخص الطلب" data-en="Order Summary">ملخص الطلب</h3>
+                    <div class="summary-item">
+                        <span data-ar="عدد الكتب:" data-en="Items:">عدد الكتب:</span>
+                        <span id="summaryItemsCount">0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span data-ar="المجموع:" data-en="Subtotal:">المجموع:</span>
+                        <span id="summarySubtotal">$0.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span data-ar="التخفيض:" data-en="Discount:">التخفيض:</span>
+                        <span id="summaryDiscount">$0.00</span>
+                    </div>
+                    <div class="summary-item summary-total">
+                        <span data-ar="المجموع الكلي:" data-en="Total:">المجموع الكلي:</span>
+                        <span id="summaryTotal">$0.00</span>
+                    </div>
+                    <button class="btn whatsapp-btn" id="checkoutBtn">
+                        <i class="fab fa-whatsapp"></i> <span data-ar="إتمام الطلب عبر واتساب" data-en="Checkout via WhatsApp">إتمام الطلب عبر واتساب</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="page-section">
+        <div class="container about-section">
+            <h2 class="section-title" id="about-title">من نحن</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 id="about-name">مرحباً، أنا محمد حلاق</h2>
+                    <p id="about-text-1">أنا مؤسس متجر كتب محمد حلاق، شغوف بالكتب والمعرفة. بدأت هذا المشروع بهدف توفير أجمل الكتب في مختلف المجالات للقراء العرب.</p>
+                    <p id="about-text-2">نحن نؤمن بأهمية القراءة في تنمية الفرد والمجتمع، ونسعى جاهدين لتقديم أفضل الكتب في العلوم الاجتماعية، السياسة، القصص والروايات، تطوير الذات، علم النفس وغيرها من المجالات.</p>
+                    <p id="about-text-3">متجرنا يقع في لبنان، طرابلس، ونقدم خدمة التوصيل في جميع أنحاء لبنان. يمكنكم التواصل معنا عبر الهاتف أو عبر البريد الإلكتروني: mhammadhallak085@gmail.com</p>
+                    <div class="visitor-counter">
+                        <p data-ar="عدد زوار الموقع:" data-en="Website Visitors:">عدد زوار الموقع: <span id="visitorCount">0</span></p>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1529148482759-b35b25c5f217?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="متجر كتب محمد حلاق">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="page-section">
+        <div class="container contact-section">
+            <h2 class="section-title" id="contact-title">اتصل بنا</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3 data-ar="معلومات الاتصال" data-en="Contact Information">معلومات الاتصال</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4 data-ar="العنوان" data-en="Address">العنوان</h4>
+                            <p>لبنان، طرابلس</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4 data-ar="الهاتف" data-en="Phone">الهاتف</h4>
+                            <p>+961 81 400 899</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4 data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</h4>
+                            <p>mhammadhallak085@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4 data-ar="ساعات العمل" data-en="Working Hours">ساعات العمل</h4>
+                            <p data-ar="الاثنين - السبت: 9 صباحاً - 6 مساءً" data-en="Monday - Friday: 9 AM - 6 PM">الاثنين - السبت: 9 صباحاً - 6 مساءً</p>
+                            <p data-ar="الجمعة: 10 صباحاً - 4 مساءً" data-en="Friday: 10 AM - 4 PM">الجمعة: 10 صباحاً - 4 مساءً</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3 data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" data-ar="الاسم الكامل" data-en="Full Name">الاسم الكامل</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" data-ar="رقم الهاتف" data-en="Phone Number">رقم الهاتف</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" data-ar="الموضوع" data-en="Subject">الموضوع</label>
+                            <select id="subject" name="subject">
+                                <option value="general" data-ar="استعلام عام" data-en="General Inquiry">استعلام عام</option>
+                                <option value="order" data-ar="استفسار عن طلب" data-en="Order Inquiry">استفسار عن طلب</option>
+                                <option value="book" data-ar="استفسار عن كتاب" data-en="Book Inquiry">استفسار عن كتاب</option>
+                                <option value="other" data-ar="موضوع آخر" data-en="Other">موضوع آخر</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-ar="الرسالة" data-en="Message">الرسالة</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i> <span data-ar="إرسال عبر واتساب" data-en="Send via WhatsApp">إرسال عبر واتساب</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="page-section">
+        <div class="container reviews-section">
+            <h2 class="section-title" id="reviews-title">تقييمات العملاء</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-img">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="عميل">
+                        </div>
+                        <div>
+                            <h4>أحمد محمد</h4>
+                            <p data-ar="منذ أسبوع" data-en="1 week ago">منذ أسبوع</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p data-ar="تجربة رائعة! الكتاب وصل بسرعة وكان بحالة ممتازة. شكراً لمتجر كتب محمد حلاق على الخدمة المميزة." data-en="Great experience! The book arrived quickly and in excellent condition. Thank you Mohammad Hallaq Bookstore for the excellent service.">تجربة رائعة! الكتاب وصل بسرعة وكان بحالة ممتازة. شكراً لمتجر كتب محمد حلاق على الخدمة المميزة.</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-img">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="عميلة">
+                        </div>
+                        <div>
+                            <h4>سارة علي</h4>
+                            <p data-ar="منذ 3 أيام" data-en="3 days ago">منذ 3 أيام</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p data-ar="مجموعة رائعة من الكتب في مختلف المجالات. أنصح الجميع بزيارة هذا المتجر الرائع." data-en="A wonderful collection of books in various fields. I recommend everyone to visit this wonderful store.">مجموعة رائعة من الكتب في مختلف المجالات. أنصح الجميع بزيارة هذا المتجر الرائع.</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-img">
+                            <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="عميل">
+                        </div>
+                        <div>
+                            <h4>خالد حسن</h4>
+                            <p data-ar="منذ شهر" data-en="1 month ago">منذ شهر</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p data-ar="أفضل متجر كتب في لبنان! الكتب أصلية والسعر مناسب. شكراً جزيلاً على الخدمة المميزة." data-en="The best bookstore in Lebanon! The books are original and the price is reasonable. Thank you very much for the excellent service.">أفضل متجر كتب في لبنان! الكتب أصلية والسعر مناسب. شكراً جزيلاً على الخدمة المميزة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Section -->
+    <section id="login" class="page-section">
+        <div class="container login-section">
+            <div class="login-container" id="loginContainer">
+                <div class="login-form" id="loginFormSection">
+                    <h2 id="login-title">تسجيل الدخول</h2>
+                    <div class="profile-preview" id="profilePreview">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="صورة المستخدم" id="profileImage">
+                    </div>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="loginName" data-ar="الاسم الكامل" data-en="Full Name">الاسم الكامل</label>
+                            <input type="text" id="loginName" name="loginName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPhone" data-ar="رقم الهاتف" data-en="Phone Number">رقم الهاتف</label>
+                            <input type="tel" id="loginPhone" name="loginPhone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="profilePicture" data-ar="صورة شخصية (اختياري)" data-en="Profile Picture (Optional)">صورة شخصية (اختياري)</label>
+                            <input type="file" id="profilePicture" name="profilePicture" accept="image/*">
+                        </div>
+                        <button type="submit" class="btn" data-ar="تسجيل الدخول" data-en="Login">تسجيل الدخول</button>
+                    </form>
+                    <div class="visitor-counter" id="userStats" style="display: none; margin-top: 20px;">
+                        <p data-ar="مرحباً" data-en="Welcome">مرحباً <span id="userName"></span>!</p>
+                        <p data-ar="عدد مرات دخولك:" data-en="Login Count:">عدد مرات دخولك: <span id="loginCount">0</span></p>
+                        <p data-ar="آخر دخول:" data-en="Last Login:">آخر دخول: <span id="lastLogin">-</span></p>
+                    </div>
+                </div>
+                
+                <div class="profile-edit-form" id="profileEditSection" style="display: none;">
+                    <h2 id="edit-profile-title">تعديل الملف الشخصي</h2>
+                    <div class="profile-preview" id="editProfilePreview">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="صورة المستخدم" id="editProfileImage">
+                    </div>
+                    <form id="editProfileForm">
+                        <div class="form-group">
+                            <label for="editName" data-ar="الاسم الكامل" data-en="Full Name">الاسم الكامل</label>
+                            <input type="text" id="editName" name="editName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editPhone" data-ar="رقم الهاتف" data-en="Phone Number">رقم الهاتف</label>
+                            <input type="tel" id="editPhone" name="editPhone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editProfilePicture" data-ar="تغيير الصورة الشخصية" data-en="Change Profile Picture">تغيير الصورة الشخصية</label>
+                            <input type="file" id="editProfilePicture" name="editProfilePicture" accept="image/*">
+                        </div>
+                        <div class="form-group">
+                            <label for="editEmail" data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</label>
+                            <input type="email" id="editEmail" name="editEmail">
+                        </div>
+                        <button type="submit" class="btn" data-ar="حفظ التغييرات" data-en="Save Changes">حفظ التغييرات</button>
+                        <button type="button" class="btn" id="logoutBtn" style="background: var(--secondary-color); margin-top: 10px;" data-ar="تسجيل الخروج" data-en="Logout">تسجيل الخروج</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3 id="footer-store-name">متجر كتب محمد حلاق</h3>
+                    <p id="footer-description">نقدم أجمل الكتب في مختلف المجالات بأفضل الأسعار. نحن نؤمن بأهمية القراءة في تنمية الفرد والمجتمع.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.me/96181400899" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 data-ar="روابط سريعة" data-en="Quick Links">روابط سريعة</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 10px;"><a href="#home" style="color: #ddd; text-decoration: none;" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#books" style="color: #ddd; text-decoration: none;" data-ar="الكتب" data-en="Books">الكتب</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#about" style="color: #ddd; text-decoration: none;" data-ar="من نحن" data-en="About">من نحن</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#contact" style="color: #ddd; text-decoration: none;" data-ar="اتصل بنا" data-en="Contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 data-ar="معلومات الاتصال" data-en="Contact Info">معلومات الاتصال</h3>
+                    <p><i class="fas fa-map-marker-alt" style="margin-left: 8px;"></i> لبنان، طرابلس</p>
+                    <p><i class="fas fa-phone" style="margin-left: 8px;"></i> +961 81 400 899</p>
+                    <p><i class="fas fa-envelope" style="margin-left: 8px;"></i> mhammadhallak085@gmail.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2023 متجر كتب محمد حلاق. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Panel -->
+    <div class="admin-overlay" id="adminOverlay"></div>
+    <div class="admin-panel" id="adminPanel">
+        <h2>لوحة التحكم</h2>
+        <div class="form-group">
+            <label>إدارة توفر الكتب</label>
+            <div id="bookAvailabilityList">
+                <!-- Book availability controls will be added here -->
+            </div>
+        </div>
+        <button class="btn" id="closeAdminPanel">إغلاق</button>
+    </div>
+    
+    <div class="admin-controls">
+        <button class="admin-btn" id="adminToggle" title="لوحة التحكم">
+            <i class="fas fa-cog"></i>
+        </button>
+    </div>
+
+    <script>
+        // بيانات الكتب المحدثة مع المزيد من الكتب
+        const books = [
+            // علم النفس
+            {
+                id: 1,
+                title: "العادات الذرية",
+                author: "جيمس كلير",
+                description: "كتاب رائع عن كيفية بناء عادات جيدة والتخلص من العادات السيئة باستخدام استراتيجيات فعالة.",
+                price: 25.99,
+                oldPrice: 29.99,
+                discount: 13,
+                category: "psychology",
+                images: [
+                    "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                ],
+                buyers: 1250,
+                readers: 3200,
+                available: true,
+                isNew: true,
+                rating: 4.8
+            },
+            {
+                id: 2,
+                title: "الذكاء العاطفي",
+                author: "دانيال جولمان",
+                description: "كتاب رائد في مجال الذكاء العاطفي وأهميته في النجاح الشخصي والمهني.",
+                price: 27.99,
+                oldPrice: 32.99,
+                discount: 15,
+                category: "psychology",
+                images: [
+                    "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                ],
+                buyers: 1120,
+                readers: 2800,
+                available: true,
+                isNew: false,
+                rating: 4.7
+            },
+            {
+                id: 3,
+                title: "قوة العقل الباطن",
+                author: "جوزيف ميرفي",
+                description: "كتاب كلاسيكي يشرح كيفية استخدام قوة العقل الباطن لتحقيق النجاح والسعادة.",
+                price: 22.50,
+                oldPrice: 0,
+                discount: 0,
+                category: "psychology",
+                images: [
+                    "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                ],
+                buyers: 890,
+                readers: 2100,
+                available: true,
+                isNew: true,
+                rating: 4.6
+            },
+            // علم الاجتماع
+            {
+                id: 4,
+                title: "علم النفس الاجتماعي",
+                author: "ديفيد مايرز",
+                description: "مرجع شامل في علم النفس الاجتماعي يشرح كيف يؤثر الأشخاص بعضهم في بعض في المواقف الاجتماعية.",
+                price: 35.75,
+                oldPrice: 0,
+                discount: 0,
+                category: "sociology",
+                images: [
+                    "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                ],
+                buyers: 540,
+                readers: 1200,
+                available: true,
+                isNew: true,
+                rating: 4.6
+            },
+            {
+                id: 5,
+                title: "بنية الثورات العلمية",
+                author: "توماس كون",
+                description: "كتاب فلسفي مهم يشرح كيفية تطور العلوم من خلال الثورات العلمية.",
+                price: 28.99,
+                oldPrice: 0,
+                discount: 0,
+                category: "sociology",
+                images: [
+                    "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                ],
+                buyers: 420,
+                readers: 950,
+                available: false,
+                isNew: false,
+                rating: 4.4
+            },
+            // روايات
+            {
+                id: 6,
+                title: "1984",
+                author: "جورج أورويل",
+                description: "رواية ديستوبية كلاسيكية تحذر من مخاطر الحكومات الشمولية ومراقبة الدولة للفرد.",
+                price: 18.99,
+                oldPrice: 0,
+                discount: 0,
+                category: "novels",
+                images: [
+                    "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                ],
+                buyers: 2100,
+                readers: 4500,
+                available: true,
+                isNew: false,
+                rating: 4.9
+            },
+            {
+                id: 7,
+                title: "الأب الغني والأب الفقير",
+                author: "روبرت كيوساكي",
+                description: "كتاب كلاسيكي في مجال التمويل الشخصي يعلمك كيفية بناء الثروة والاستقلال المالي.",
+                price: 22.50,
+                oldPrice: 27.50,
+                discount: 18,
+                category: "novels",
+                images: [
+                    "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                ],
+                buyers: 980,
+                readers: 2100,
+                available: true,
+                isNew: false,
+                rating: 4.7
+            },
+            {
+                id: 8,
+                title: "الغريب",
+                author: "ألبير كامو",
+                description: "رواية فلسفية تناقش اللامعنى والعبث في الحياة الإنسانية.",
+                price: 19.50,
+                oldPrice: 0,
+                discount: 0,
+                category: "novels",
+                images: [
+                    "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                ],
+                buyers: 760,
+                readers: 1800,
+                available: true,
+                isNew: false,
+                rating: 4.5
+            },
+            // تطوير الذات
+            {
+                id: 9,
+                title: "فن اللامبالاة",
+                author: "مارك مانسون",
+                description: "كتاب عن كيفية عيش حياة جيدة من خلال الاهتمام بما هو مهم حقاً.",
+                price: 24.99,
+                oldPrice: 29.99,
+                discount: 17,
+                category: "selfdev",
+                images: [
+                    "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                ],
+                buyers: 1340,
+                readers: 2900,
+                available: true,
+                isNew: true,
+                rating: 4.7
+            },
+            {
+                id: 10,
+                title: "الأسبوع الذي غير حياتي",
+                author: "روبين شارما",
+                description: "كتاب عن تحويل حياتك في أسبوع واحد من خلال عادات وتفكير جديد.",
+                price: 21.75,
+                oldPrice: 0,
+                discount: 0,
+                category: "selfdev",
+                images: [
+                    "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                ],
+                buyers: 920,
+                readers: 2100,
+                available: true,
+                isNew: false,
+                rating: 4.3
+            },
+            // فلسفة
+            {
+                id: 11,
+                title: "هكذا تكلم زرادشت",
+                author: "فريدريك نيتشه",
+                description: "عمل فلسفي أدبي يعرض فلسفة نيتشه حول الإنسان المتفوق وقيم الحياة.",
+                price: 26.50,
+                oldPrice: 31.50,
+                discount: 16,
+                category: "philosophy",
+                images: [
+                    "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                ],
+                buyers: 680,
+                readers: 1500,
+                available: true,
+                isNew: false,
+                rating: 4.6
+            },
+            {
+                id: 12,
+                title: "جمهورية أفلاطون",
+                author: "أفلاطون",
+                description: "حوار فلسفي كلاسيكي يناقش العدالة والنظام السياسي المثالي.",
+                price: 23.99,
+                oldPrice: 0,
+                discount: 0,
+                category: "philosophy",
+                images: [
+                    "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                ],
+                buyers: 540,
+                readers: 1200,
+                available: true,
+                isNew: false,
+                rating: 4.4
+            },
+            // سياسية
+            {
+                id: 13,
+                title: "صراع الحضارات",
+                author: "صموئيل هنتنغتون",
+                description: "تحليل عميق للعلاقات الدولية بعد الحرب الباردة ونظرية صراع الحضارات.",
+                price: 29.50,
+                oldPrice: 34.50,
+                discount: 14,
+                category: "politics",
+                images: [
+                    "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                ],
+                buyers: 760,
+                readers: 1600,
+                available: true,
+                isNew: true,
+                rating: 4.5
+            },
+            {
+                id: 14,
+                title: "الأمير",
+                author: "نيكولو مكيافيلي",
+                description: "كتاب سياسي كلاسيكي يناقش فن الحكم واستخدام القوة في السياسة.",
+                price: 19.99,
+                oldPrice: 0,
+                discount: 0,
+                category: "politics",
+                images: [
+                    "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                ],
+                buyers: 890,
+                readers: 1900,
+                available: true,
+                isNew: false,
+                rating: 4.4
+            },
+            // علوم
+            {
+                id: 15,
+                title: "تاريخ موجز للزمن",
+                author: "ستيفن هوكينج",
+                description: "كتاب علمي شهير يشرح مفاهيم الكون والفيزياء بطريقة مبسطة.",
+                price: 27.99,
+                oldPrice: 32.99,
+                discount: 15,
+                category: "science",
+                images: [
+                    "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                ],
+                buyers: 1120,
+                readers: 2500,
+                available: true,
+                isNew: true,
+                rating: 4.8
+            },
+            {
+                id: 16,
+                title: "الجين الأناني",
+                author: "ريتشارد دوكينز",
+                description: "كتاب علمي بيولوجي يشرح نظرية التطور من منظور الجينات.",
+                price: 25.50,
+                oldPrice: 0,
+                discount: 0,
+                category: "science",
+                images: [
+                    "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                ],
+                buyers: 730,
+                readers: 1700,
+                available: true,
+                isNew: false,
+                rating: 4.5
+            },
+            // كتب إضافية
+            {
+                id: 17,
+                title: "الإنسان يبحث عن المعنى",
+                author: "فيكتور فرانكل",
+                description: "كتاب نفسي عميق يستند إلى تجربة المؤلف في معسكرات الاعتقال النازية.",
+                price: 20.99,
+                oldPrice: 0,
+                discount: 0,
+                category: "psychology",
+                images: [
+                    "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                ],
+                buyers: 980,
+                readers: 2200,
+                available: true,
+                isNew: false,
+                rating: 4.9
+            },
+            {
+                id: 18,
+                title: "المجتمع المفتوح وأعداؤه",
+                author: "كارل بوبر",
+                description: "دفاع فلسفي عن المجتمع المفتوح والديمقراطية ضد النزعات الشمولية.",
+                price: 31.75,
+                oldPrice: 36.75,
+                discount: 14,
+                category: "philosophy",
+                images: [
+                    "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                ],
+                buyers: 420,
+                readers: 1100,
+                available: true,
+                isNew: true,
+                rating: 4.3
+            },
+            {
+                id: 19,
+                title: "العالم كما أراه",
+                author: "ألبرت أينشتاين",
+                description: "مجموعة من مقالات أينشتاين حول العلم، الفلسفة، السياسة، والدين.",
+                price: 23.50,
+                oldPrice: 0,
+                discount: 0,
+                category: "science",
+                images: [
+                    "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                ],
+                buyers: 610,
+                readers: 1400,
+                available: true,
+                isNew: false,
+                rating: 4.6
+            },
+            {
+                id: 20,
+                title: "المسؤولية الاجتماعية للشركات",
+                author: "بيتر دراكر",
+                description: "كتاب عن إدارة الأعمال والمسؤولية الاجتماعية للشركات في العصر الحديث.",
+                price: 26.99,
+                oldPrice: 31.99,
+                discount: 16,
+                category: "selfdev",
+                images: [
+                    "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                ],
+                buyers: 540,
+                readers: 1200,
+                available: false,
+                isNew: true,
+                rating: 4.2
+            }
+        ];
+
+        // حالة التطبيق
+        const state = {
+            cart: [],
+            currentCategory: 'all',
+            currentUser: null,
+            visitorCount: 0,
+            userLoginCount: 0,
+            lastLogin: null,
+            isArabic: true,
+            currentPage: 1,
+            booksPerPage: 8,
+            searchQuery: '',
+            adminMode: false
+        };
+
+        // تهيئة التطبيق
+        document.addEventListener('DOMContentLoaded', function() {
+            // تحميل البيانات من localStorage
+            loadFromLocalStorage();
+            
+            // تحديث عدد الزوار
+            updateVisitorCount();
+            
+            // إنشاء واجهة الكتب
+            renderBooks();
+            updateCartUI();
+            
+            // إعداد معالجات الأحداث
+            setupEventListeners();
+            
+            // إخفاء جميع الأقسام وإظهار القسم النشط
+            showActiveSection();
+            
+            // تحديث واجهة المستخدم حسب حالة تسجيل الدخول
+            updateUserUI();
+        });
+
+        // تحميل البيانات من localStorage
+        function loadFromLocalStorage() {
+            const savedCart = localStorage.getItem('bookstore_cart');
+            const savedUser = localStorage.getItem('bookstore_user');
+            const savedVisitorCount = localStorage.getItem('bookstore_visitor_count');
+            const savedUserLoginCount = localStorage.getItem('bookstore_user_login_count');
+            const savedLastLogin = localStorage.getItem('bookstore_last_login');
+            const savedLanguage = localStorage.getItem('bookstore_language');
+            const savedBooks = localStorage.getItem('bookstore_books_data');
+            
+            if (savedCart) {
+                state.cart = JSON.parse(savedCart);
+            }
+            
+            if (savedUser) {
+                state.currentUser = JSON.parse(savedUser);
+            }
+            
+            if (savedVisitorCount) {
+                state.visitorCount = parseInt(savedVisitorCount);
+                document.getElementById('visitorCount').textContent = state.visitorCount;
+            }
+            
+            if (savedUserLoginCount) {
+                state.userLoginCount = parseInt(savedUserLoginCount);
+            }
+            
+            if (savedLastLogin) {
+                state.lastLogin = savedLastLogin;
+            }
+            
+            if (savedLanguage) {
+                state.isArabic = savedLanguage === 'ar';
+                updateLanguageUI();
+            }
+            
+            if (savedBooks) {
+                // يمكن تحميل الكتب المعدلة من localStorage إذا كنت تريد حفظ التغييرات
+                // const modifiedBooks = JSON.parse(savedBooks);
+                // books.splice(0, books.length, ...modifiedBooks);
+            }
+        }
+
+        // حفظ البيانات في localStorage
+        function saveToLocalStorage() {
+            localStorage.setItem('bookstore_cart', JSON.stringify(state.cart));
+            if (state.currentUser) {
+                localStorage.setItem('bookstore_user', JSON.stringify(state.currentUser));
+            }
+            localStorage.setItem('bookstore_visitor_count', state.visitorCount.toString());
+            localStorage.setItem('bookstore_user_login_count', state.userLoginCount.toString());
+            if (state.lastLogin) {
+                localStorage.setItem('bookstore_last_login', state.lastLogin);
+            }
+            localStorage.setItem('bookstore_language', state.isArabic ? 'ar' : 'en');
+            localStorage.setItem('bookstore_books_data', JSON.stringify(books));
+        }
+
+        // تحديث عدد الزوار
+        function updateVisitorCount() {
+            state.visitorCount++;
+            document.getElementById('visitorCount').textContent = state.visitorCount;
+            saveToLocalStorage();
+        }
+
+        // إعداد معالجات الأحداث
+        function setupEventListeners() {
+            // التنقل بين الأقسام
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('data-section');
+                    
+                    // تحديث الروابط النشطة
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // إظهار القسم المحدد
+                    showSection(sectionId);
+                    
+                    // إغلاق القائمة المتنقلة على الأجهزة الصغيرة
+                    if (window.innerWidth <= 768) {
+                        document.getElementById('navLinks').classList.remove('active');
+                    }
+                });
+            });
+
+            // القائمة المتنقلة
+            document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+                document.getElementById('navLinks').classList.toggle('active');
+            });
+
+            // تغيير اللغة
+            document.getElementById('langToggle').addEventListener('click', function() {
+                state.isArabic = !state.isArabic;
+                updateLanguageUI();
+                saveToLocalStorage();
+            });
+
+            // تصفية الكتب حسب الفئة
+            const categories = document.querySelectorAll('.category');
+            categories.forEach(category => {
+                category.addEventListener('click', function() {
+                    const categoryType = this.getAttribute('data-category');
+                    
+                    // تحديث الفئة النشطة
+                    categories.forEach(c => c.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // تصفية الكتب
+                    state.currentCategory = categoryType;
+                    state.currentPage = 1;
+                    renderBooks();
+                });
+            });
+
+            // البحث عن الكتب
+            document.getElementById('searchBtn').addEventListener('click', performSearch);
+            document.getElementById('bookSearch').addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+            
+            document.getElementById('allSearchBtn').addEventListener('click', performAllSearch);
+            document.getElementById('allBookSearch').addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') {
+                    performAllSearch();
+                }
+            });
+
+            // نموذج الاتصال
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const email = document.getElementById('email').value || 'mhammadhallak085@gmail.com';
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                const subjectText = document.querySelector(`#subject option[value="${subject}"]`).textContent;
+                
+                const whatsappMessage = `مرحباً، أنا ${name}%0Aرقم هاتفي: ${phone}%0Aالبريد الإلكتروني: ${email}%0Aالموضوع: ${subjectText}%0Aالرسالة: ${message}`;
+                const whatsappUrl = `https://wa.me/96181400899?text=${whatsappMessage}`;
+                
+                window.open(whatsappUrl, '_blank');
+                alert(state.isArabic ? 'سيتم فتح تطبيق واتساب لإرسال رسالتك. شكراً لتواصلك معنا!' : 'WhatsApp will open to send your message. Thank you for contacting us!');
+                
+                // إعادة تعيين النموذج
+                this.reset();
+            });
+
+            // نموذج تسجيل الدخول
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('loginName').value;
+                const phone = document.getElementById('loginPhone').value;
+                const profilePicture = document.getElementById('profilePicture').files[0];
+                
+                let profileImage = 'https://randomuser.me/api/portraits/men/75.jpg';
+                
+                if (profilePicture) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        profileImage = e.target.result;
+                        completeLogin(name, phone, profileImage);
+                    };
+                    reader.readAsDataURL(profilePicture);
+                } else {
+                    completeLogin(name, phone, profileImage);
+                }
+            });
+
+            // نموذج تعديل الملف الشخصي
+            document.getElementById('editProfileForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('editName').value;
+                const phone = document.getElementById('editPhone').value;
+                const email = document.getElementById('editEmail').value;
+                const profilePicture = document.getElementById('editProfilePicture').files[0];
+                
+                if (profilePicture) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        updateProfile(name, phone, email, e.target.result);
+                    };
+                    reader.readAsDataURL(profilePicture);
+                } else {
+                    updateProfile(name, phone, email, state.currentUser.profileImage);
+                }
+            });
+
+            // زر تسجيل الخروج
+            document.getElementById('logoutBtn').addEventListener('click', logout);
+
+            // تغيير صورة الملف الشخصي
+            document.getElementById('profilePicture').addEventListener('change', function(e) {
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('profileImage').src = e.target.result;
+                    };
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+            
+            document.getElementById('editProfilePicture').addEventListener('change', function(e) {
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('editProfileImage').src = e.target.result;
+                    };
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+
+            // زر إتمام الطلب عبر واتساب
+            document.getElementById('checkoutBtn').addEventListener('click', function() {
+                if (state.cart.length === 0) {
+                    alert(state.isArabic ? 'سلة التسوق فارغة. أضف بعض الكتب قبل إتمام الطلب.' : 'Your cart is empty. Add some books before checkout.');
+                    return;
+                }
+                
+                let orderMessage = state.isArabic ? 
+                    `مرحباً، أريد طلب الكتب التالية:%0A%0A` :
+                    `Hello, I would like to order the following books:%0A%0A`;
+                
+                state.cart.forEach((item, index) => {
+                    const book = books.find(b => b.id === item.id);
+                    orderMessage += `${index + 1}. ${book.title} - ${item.quantity} ${state.isArabic ? 'نسخة' : 'copy'} - $${(book.price * item.quantity).toFixed(2)}%0A`;
+                });
+                
+                const cartTotal = calculateCartTotal();
+                orderMessage += `%0A${state.isArabic ? 'المجموع' : 'Total'}: $${cartTotal.total.toFixed(2)}%0A%0A`;
+                orderMessage += `${state.isArabic ? 'الاسم' : 'Name'}: ${state.currentUser ? state.currentUser.name : (state.isArabic ? 'زائر' : 'Guest')}%0A`;
+                orderMessage += `${state.isArabic ? 'رقم الهاتف' : 'Phone Number'}: ${state.currentUser ? state.currentUser.phone : (state.isArabic ? 'لم يتم التحديد' : 'Not specified')}`;
+                
+                const whatsappUrl = `https://wa.me/96181400899?text=${orderMessage}`;
+                window.open(whatsappUrl, '_blank');
+            });
+
+            // لوحة التحكم
+            document.getElementById('adminToggle').addEventListener('click', function() {
+                if (state.currentUser) {
+                    state.adminMode = !state.adminMode;
+                    document.getElementById('adminPanel').classList.toggle('active');
+                    document.getElementById('adminOverlay').classList.toggle('active');
+                    renderBookAvailabilityControls();
+                } else {
+                    alert(state.isArabic ? 'يجب تسجيل الدخول للوصول إلى لوحة التحكم' : 'You must be logged in to access the admin panel');
+                }
+            });
+
+            document.getElementById('closeAdminPanel').addEventListener('click', function() {
+                state.adminMode = false;
+                document.getElementById('adminPanel').classList.remove('active');
+                document.getElementById('adminOverlay').classList.remove('active');
+            });
+
+            document.getElementById('adminOverlay').addEventListener('click', function() {
+                state.adminMode = false;
+                document.getElementById('adminPanel').classList.remove('active');
+                this.classList.remove('active');
+            });
+
+            // معاينة صورة الملف الشخصي بالنقر
+            document.getElementById('profilePreview').addEventListener('click', function() {
+                document.getElementById('profilePicture').click();
+            });
+            
+            document.getElementById('editProfilePreview').addEventListener('click', function() {
+                document.getElementById('editProfilePicture').click();
+            });
+        }
+
+        // البحث عن الكتب
+        function performSearch() {
+            state.searchQuery = document.getElementById('bookSearch').value.toLowerCase();
+            state.currentPage = 1;
+            renderBooks();
+        }
+
+        function performAllSearch() {
+            state.searchQuery = document.getElementById('allBookSearch').value.toLowerCase();
+            state.currentPage = 1;
+            renderAllBooks();
+        }
+
+        // إكمال تسجيل الدخول
+        function completeLogin(name, phone, profileImage) {
+            state.currentUser = {
+                name: name,
+                phone: phone,
+                profileImage: profileImage,
+                email: ''
+            };
+            
+            // تحديث عدد مرات الدخول
+            state.userLoginCount++;
+            state.lastLogin = new Date().toLocaleString(state.isArabic ? 'ar-LB' : 'en-US');
+            
+            // حفظ في localStorage
+            saveToLocalStorage();
+            
+            // تحديث واجهة المستخدم
+            updateUserUI();
+            
+            alert(state.isArabic ? `مرحباً ${name}! تم تسجيل دخولك بنجاح.` : `Welcome ${name}! You have successfully logged in.`);
+            
+            // إعادة تعيين النموذج
+            document.getElementById('loginForm').reset();
+            
+            // عرض قسم تعديل الملف الشخصي
+            showProfileEditSection();
+        }
+
+        // تحديث الملف الشخصي
+        function updateProfile(name, phone, email, profileImage) {
+            state.currentUser.name = name;
+            state.currentUser.phone = phone;
+            state.currentUser.profileImage = profileImage;
+            if (email) state.currentUser.email = email;
+            
+            saveToLocalStorage();
+            updateUserUI();
+            
+            alert(state.isArabic ? 'تم تحديث الملف الشخصي بنجاح!' : 'Profile updated successfully!');
+        }
+
+        // تسجيل الخروج
+        function logout() {
+            state.currentUser = null;
+            saveToLocalStorage();
+            updateUserUI();
+            
+            alert(state.isArabic ? 'تم تسجيل الخروج بنجاح' : 'Logged out successfully');
+            
+            // العودة إلى قسم تسجيل الدخول
+            showLoginSection();
+        }
+
+        // تحديث واجهة المستخدم حسب حالة تسجيل الدخول
+        function updateUserUI() {
+            const userProfileElement = document.querySelector('.user-profile');
+            const loginNavItem = document.getElementById('loginNavItem');
+            const userStats = document.getElementById('userStats');
+            const loginSection = document.getElementById('loginSection');
+            
+            if (state.currentUser) {
+                // تحديث الرأس
+                if (!userProfileElement) {
+                    const headerContent = document.querySelector('.header-content');
+                    const newUserProfile = document.createElement('div');
+                    newUserProfile.className = 'user-profile user-menu';
+                    newUserProfile.innerHTML = `
+                        <div class="user-avatar" id="headerUserAvatar">
+                            <img src="${state.currentUser.profileImage}" alt="صورة المستخدم">
+                        </div>
+                        <span>${state.currentUser.name}</span>
+                        <div class="dropdown-menu" id="userDropdown">
+                            <a href="#login" class="nav-link" data-section="login" data-ar="تعديل الملف الشخصي" data-en="Edit Profile">تعديل الملف الشخصي</a>
+                            <a href="#" id="userLogout" data-ar="تسجيل الخروج" data-en="Logout">تسجيل الخروج</a>
+                        </div>
+                    `;
+                    headerContent.insertBefore(newUserProfile, document.getElementById('navLinks'));
+                    
+                    // إضافة معالج الأحداث للملف الشخصي
+                    document.getElementById('headerUserAvatar').addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        document.getElementById('userDropdown').classList.toggle('active');
+                    });
+                    
+                    document.getElementById('userLogout').addEventListener('click', function(e) {
+                        e.preventDefault();
+                        logout();
+                    });
+                    
+                    // إغلاق القائمة المنسدلة عند النقر خارجها
+                    document.addEventListener('click', function(e) {
+                        const dropdown = document.getElementById('userDropdown');
+                        if (dropdown && !e.target.closest('.user-profile')) {
+                            dropdown.classList.remove('active');
+                        }
+                    });
+                } else {
+                    document.getElementById('headerUserAvatar').querySelector('img').src = state.currentUser.profileImage;
+                    userProfileElement.querySelector('span').textContent = state.currentUser.name;
+                }
+                
+                // تحديث رابط تسجيل الدخول في القائمة
+                loginNavItem.querySelector('a').innerHTML = state.isArabic ? 'الملف الشخصي' : 'Profile';
+                
+                // تحديث قسم تسجيل الدخول
+                document.getElementById('userName').textContent = state.currentUser.name;
+                document.getElementById('loginCount').textContent = state.userLoginCount;
+                document.getElementById('lastLogin').textContent = state.lastLogin || '-';
+                userStats.style.display = 'block';
+                
+                // تعبئة بيانات تعديل الملف الشخصي
+                document.getElementById('editName').value = state.currentUser.name;
+                document.getElementById('editPhone').value = state.currentUser.phone;
+                document.getElementById('editEmail').value = state.currentUser.email || '';
+                document.getElementById('editProfileImage').src = state.currentUser.profileImage;
+            } else {
+                // إزالة الملف الشخصي من الرأس
+                if (userProfileElement) {
+                    userProfileElement.remove();
+                }
+                
+                // إعادة رابط تسجيل الدخول
+                loginNavItem.querySelector('a').innerHTML = state.isArabic ? 'تسجيل الدخول' : 'Login';
+                
+                // إخفاء إحصائيات المستخدم
+                userStats.style.display = 'none';
+                
+                // إظهار قسم تسجيل الدخول
+                showLoginSection();
+            }
+        }
+
+        // إظهار قسم تسجيل الدخول
+        function showLoginSection() {
+            document.getElementById('loginFormSection').style.display = 'block';
+            document.getElementById('profileEditSection').style.display = 'none';
+        }
+
+        // إظهار قسم تعديل الملف الشخصي
+        function showProfileEditSection() {
+            document.getElementById('loginFormSection').style.display = 'none';
+            document.getElementById('profileEditSection').style.display = 'block';
+        }
+
+        // تحديث واجهة اللغة
+        function updateLanguageUI() {
+            const langElements = document.querySelectorAll('[data-ar], [data-en]');
+            const currentLang = state.isArabic ? 'ar' : 'en';
+            const otherLang = state.isArabic ? 'en' : 'ar';
+            
+            // تحديث النصوص
+            langElements.forEach(element => {
+                if (element.hasAttribute(`data-${currentLang}`)) {
+                    const text = element.getAttribute(`data-${currentLang}`);
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = text;
+                    } else if (element.tagName === 'OPTION') {
+                        element.textContent = text;
+                    } else {
+                        element.textContent = text;
+                    }
+                }
+            });
+            
+            // تحديث زر اللغة
+            document.getElementById('currentLang').textContent = state.isArabic ? 'العربية' : 'English';
+            
+            // تحديث اتجاه النص
+            document.documentElement.dir = state.isArabic ? 'rtl' : 'ltr';
+            document.documentElement.lang = state.isArabic ? 'ar' : 'en';
+            
+            // تحديث عنوان المتجر
+            document.getElementById('store-title').textContent = state.isArabic ? 'متجر كتب محمد حلاق' : 'Mohammad Hallaq Bookstore';
+            
+            // إعادة عرض الكتب لتحديث النصوص
+            renderBooks();
+        }
+
+        // إظهار القسم النشط
+        function showActiveSection() {
+            const hash = window.location.hash || '#home';
+            const sectionId = hash.substring(1);
+            showSection(sectionId);
+            
+            // تحديث الروابط النشطة
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                if (link.getAttribute('data-section') === sectionId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        // إظهار قسم محدد
+        function showSection(sectionId) {
+            // إخفاء جميع الأقسام
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // إظهار القسم المطلوب
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+                
+                // إذا كان المستخدم مسجلاً دخولاً وقسم تسجيل الدخول، عرض تعديل الملف الشخصي
+                if (sectionId === 'login' && state.currentUser) {
+                    showProfileEditSection();
+                } else if (sectionId === 'login') {
+                    showLoginSection();
+                }
+            }
+            
+            // تحديث عنوان URL
+            window.location.hash = sectionId;
+            
+            // إذا كان القسم هو السلة، قم بتحديث واجهة المستخدم
+            if (sectionId === 'cart') {
+                updateCartUI();
+            }
+            
+            // إذا كان القسم هو الكتب، قم بعرض الكتب
+            if (sectionId === 'books') {
+                renderAllBooks();
+            }
+        }
+
+        // عرض الكتب مع التصفية والبحث
+        function renderBooks() {
+            const featuredBooksContainer = document.getElementById('featuredBooks');
+            const paginationContainer = document.getElementById('featuredPagination');
+            
+            // تصفية الكتب
+            let filteredBooks = books;
+            
+            if (state.currentCategory !== 'all') {
+                filteredBooks = filteredBooks.filter(book => book.category === state.currentCategory);
+            }
+            
+            if (state.searchQuery) {
+                filteredBooks = filteredBooks.filter(book => 
+                    book.title.toLowerCase().includes(state.searchQuery) || 
+                    book.author.toLowerCase().includes(state.searchQuery) ||
+                    book.description.toLowerCase().includes(state.searchQuery)
+                );
+            }
+            
+            // حساب عدد الصفحات
+            const totalPages = Math.ceil(filteredBooks.length / state.booksPerPage);
+            
+            // الحصول على الكتب للصفحة الحالية
+            const startIndex = (state.currentPage - 1) * state.booksPerPage;
+            const endIndex = startIndex + state.booksPerPage;
+            const booksToShow = filteredBooks.slice(startIndex, endIndex);
+            
+            // عرض الكتب
+            featuredBooksContainer.innerHTML = '';
+            
+            if (booksToShow.length === 0) {
+                const noBooksMessage = state.isArabic ? 
+                    'لا توجد كتب تطابق معايير البحث.' : 
+                    'No books match the search criteria.';
+                featuredBooksContainer.innerHTML = `<p style="text-align: center; grid-column: 1/-1; font-size: 18px;">${noBooksMessage}</p>`;
+                paginationContainer.innerHTML = '';
+                return;
+            }
+            
+            booksToShow.forEach(book => {
+                const bookElement = createBookElement(book);
+                featuredBooksContainer.appendChild(bookElement);
+            });
+            
+            // عرض أزرار الصفحات
+            renderPagination(paginationContainer, totalPages, 'featured');
+        }
+
+        // عرض جميع الكتب
+        function renderAllBooks() {
+            const allBooksContainer = document.getElementById('allBooks');
+            const paginationContainer = document.getElementById('allBooksPagination');
+            
+            // تصفية الكتب
+            let filteredBooks = books;
+            
+            if (state.searchQuery) {
+                filteredBooks = filteredBooks.filter(book => 
+                    book.title.toLowerCase().includes(state.searchQuery) || 
+                    book.author.toLowerCase().includes(state.searchQuery) ||
+                    book.description.toLowerCase().includes(state.searchQuery)
+                );
+            }
+            
+            // حساب عدد الصفحات
+            const totalPages = Math.ceil(filteredBooks.length / state.booksPerPage);
+            
+            // الحصول على الكتب للصفحة الحالية
+            const startIndex = (state.currentPage - 1) * state.booksPerPage;
+            const endIndex = startIndex + state.booksPerPage;
+            const booksToShow = filteredBooks.slice(startIndex, endIndex);
+            
+            // عرض الكتب
+            allBooksContainer.innerHTML = '';
+            
+            if (booksToShow.length === 0) {
+                const noBooksMessage = state.isArabic ? 
+                    'لا توجد كتب تطابق معايير البحث.' : 
+                    'No books match the search criteria.';
+                allBooksContainer.innerHTML = `<p style="text-align: center; grid-column: 1/-1; font-size: 18px;">${noBooksMessage}</p>`;
+                paginationContainer.innerHTML = '';
+                return;
+            }
+            
+            booksToShow.forEach(book => {
+                const bookElement = createBookElement(book);
+                allBooksContainer.appendChild(bookElement);
+            });
+            
+            // عرض أزرار الصفحات
+            renderPagination(paginationContainer, totalPages, 'all');
+        }
+
+        // عرض أزرار الصفحات
+        function renderPagination(container, totalPages, type) {
+            container.innerHTML = '';
+            
+            if (totalPages <= 1) return;
+            
+            for (let i = 1; i <= totalPages; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.className = `pagination-btn ${i === state.currentPage ? 'active' : ''}`;
+                pageBtn.textContent = i;
+                pageBtn.addEventListener('click', () => {
+                    state.currentPage = i;
+                    if (type === 'featured') {
+                        renderBooks();
+                    } else {
+                        renderAllBooks();
+                    }
+                });
+                container.appendChild(pageBtn);
+            }
+        }
+
+        // إنشاء عنصر كتاب
+        function createBookElement(book) {
+            const bookElement = document.createElement('div');
+            bookElement.className = 'book-card';
+            
+            // إعداد نص التوفر
+            const availabilityText = state.isArabic ? 
+                (book.available ? 'متوفر' : 'غير متوفر') :
+                (book.available ? 'Available' : 'Unavailable');
+            
+            bookElement.innerHTML = `
+                <div class="book-image">
+                    <div class="book-slider" id="slider-${book.id}">
+                        ${book.images.map(img => `<img src="${img}" alt="${book.title}">`).join('')}
+                    </div>
+                    ${book.isNew ? '<div class="book-badge">' + (state.isArabic ? 'جديد' : 'New') + '</div>' : ''}
+                    <button class="slider-btn slider-prev" data-slider="${book.id}">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="slider-btn slider-next" data-slider="${book.id}">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="slider-controls">
+                        ${book.images.map((_, index) => `<div class="slider-dot ${index === 0 ? 'active' : ''}" data-slider="${book.id}" data-index="${index}"></div>`).join('')}
+                    </div>
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">${book.title}</h3>
+                    <p class="book-author">${book.author}</p>
+                    <p class="book-description">${book.description}</p>
+                    <div class="book-meta">
+                        <div>
+                            <span>${state.isArabic ? 'المشترين:' : 'Buyers:'} ${book.buyers.toLocaleString()}</span>
+                            <span> | ${state.isArabic ? 'القراء:' : 'Readers:'} ${book.readers.toLocaleString()}</span>
+                        </div>
+                        <div class="book-rating">
+                            <i class="fas fa-star" style="color: #f1c40f;"></i> ${book.rating}
+                        </div>
+                    </div>
+                    <div class="book-price">
+                        $${book.price.toFixed(2)}
+                        ${book.oldPrice ? `<span class="book-old-price">$${book.oldPrice.toFixed(2)}</span>` : ''}
+                        ${book.discount ? `<span class="book-discount">${book.discount}% ${state.isArabic ? 'تخفيض' : 'off'}</span>` : ''}
+                    </div>
+                    <div class="book-actions">
+                        <div class="availability ${book.available ? 'available' : 'unavailable'}">
+                            <i class="fas ${book.available ? 'fa-check-circle' : 'fa-times-circle'}"></i>
+                            ${availabilityText}
+                        </div>
+                        <button class="btn add-to-cart" data-id="${book.id}" ${!book.available ? 'disabled' : ''}>
+                            ${!book.available ? (state.isArabic ? 'غير متوفر' : 'Unavailable') : (state.isArabic ? 'أضف إلى السلة' : 'Add to Cart')}
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // إعداد معالج الأحداث لأزرار المنزلق
+            const sliderId = book.id;
+            let currentSlide = 0;
+            
+            // زر التالي
+            bookElement.querySelector('.slider-next').addEventListener('click', function() {
+                currentSlide = (currentSlide + 1) % book.images.length;
+                updateSlider(sliderId, currentSlide);
+            });
+            
+            // زر السابق
+            bookElement.querySelector('.slider-prev').addEventListener('click', function() {
+                currentSlide = (currentSlide - 1 + book.images.length) % book.images.length;
+                updateSlider(sliderId, currentSlide);
+            });
+            
+            // النقاط
+            const sliderDots = bookElement.querySelectorAll('.slider-dot');
+            sliderDots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    currentSlide = index;
+                    updateSlider(sliderId, currentSlide);
+                });
+            });
+            
+            // زر إضافة إلى السلة
+            const addToCartBtn = bookElement.querySelector('.add-to-cart');
+            addToCartBtn.addEventListener('click', function() {
+                if (book.available) {
+                    addToCart(book.id);
+                }
+            });
+            
+            return bookElement;
+        }
+
+        // تحديث المنزلق
+        function updateSlider(sliderId, slideIndex) {
+            const slider = document.getElementById(`slider-${sliderId}`);
+            const dots = document.querySelectorAll(`.slider-dot[data-slider="${sliderId}"]`);
+            
+            if (slider) {
+                slider.style.transform = `translateX(-${slideIndex * 100}%)`;
+                
+                dots.forEach(dot => dot.classList.remove('active'));
+                if (dots[slideIndex]) {
+                    dots[slideIndex].classList.add('active');
+                }
+            }
+        }
+
+        // إضافة كتاب إلى السلة
+        function addToCart(bookId) {
+            const existingItem = state.cart.find(item => item.id === bookId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                state.cart.push({
+                    id: bookId,
+                    quantity: 1
+                });
+            }
+            
+            // تحديث واجهة المستخدم
+            updateCartUI();
+            
+            // حفظ في localStorage
+            saveToLocalStorage();
+            
+            // عرض رسالة تأكيد
+            const book = books.find(b => b.id === bookId);
+            const message = state.isArabic ? 
+                `تمت إضافة "${book.title}" إلى سلة التسوق.` :
+                `"${book.title}" has been added to your cart.`;
+            alert(message);
+        }
+
+        // تحديث واجهة سلة التسوق
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const emptyCartMessage = document.getElementById('emptyCartMessage');
+            const cartCount = document.querySelector('.cart-count');
+            const summaryItemsCount = document.getElementById('summaryItemsCount');
+            const summarySubtotal = document.getElementById('summarySubtotal');
+            const summaryDiscount = document.getElementById('summaryDiscount');
+            const summaryTotal = document.getElementById('summaryTotal');
+            
+            // تحديث عدد العناصر في السلة
+            const totalItems = state.cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // إذا كانت السلة فارغة
+            if (state.cart.length === 0) {
+                emptyCartMessage.style.display = 'block';
+                cartItemsContainer.innerHTML = '';
+                cartItemsContainer.appendChild(emptyCartMessage);
+                
+                // تحديث الملخص
+                summaryItemsCount.textContent = '0';
+                summarySubtotal.textContent = '$0.00';
+                summaryDiscount.textContent = '$0.00';
+                summaryTotal.textContent = '$0.00';
+                
+                return;
+            }
+            
+            // إخفاء رسالة السلة الفارغة
+            emptyCartMessage.style.display = 'none';
+            
+            // عرض عناصر السلة
+            let cartItemsHTML = '';
+            
+            state.cart.forEach(cartItem => {
+                const book = books.find(b => b.id === cartItem.id);
+                const itemTotal = book.price * cartItem.quantity;
+                const itemDiscount = book.oldPrice ? (book.oldPrice - book.price) * cartItem.quantity : 0;
+                
+                cartItemsHTML += `
+                    <div class="cart-item" data-id="${book.id}">
+                        <div class="cart-item-image">
+                            <img src="${book.images[0]}" alt="${book.title}">
+                        </div>
+                        <div class="cart-item-details">
+                            <h3 class="cart-item-title">${book.title}</h3>
+                            <p class="book-author">${book.author}</p>
+                            <div class="cart-item-price">$${itemTotal.toFixed(2)}</div>
+                            <div class="cart-item-quantity">
+                                <button class="quantity-btn decrease-quantity" data-id="${book.id}">-</button>
+                                <input type="number" class="quantity-input" value="${cartItem.quantity}" min="1" data-id="${book.id}">
+                                <button class="quantity-btn increase-quantity" data-id="${book.id}">+</button>
+                            </div>
+                            <button class="remove-item" data-id="${book.id}">
+                                <i class="fas fa-trash"></i> ${state.isArabic ? 'إزالة' : 'Remove'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            cartItemsContainer.innerHTML = cartItemsHTML;
+            
+            // تحديث الملخص
+            const cartSummary = calculateCartTotal();
+            summaryItemsCount.textContent = totalItems;
+            summarySubtotal.textContent = `$${cartSummary.subtotal.toFixed(2)}`;
+            summaryDiscount.textContent = `-$${cartSummary.discount.toFixed(2)}`;
+            summaryTotal.textContent = `$${cartSummary.total.toFixed(2)}`;
+            
+            // إعداد معالجات الأحداث لعناصر السلة
+            setupCartEventListeners();
+        }
+
+        // إعداد معالجات الأحداث لعناصر السلة
+        function setupCartEventListeners() {
+            // زيادة الكمية
+            document.querySelectorAll('.increase-quantity').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const bookId = parseInt(this.getAttribute('data-id'));
+                    const cartItem = state.cart.find(item => item.id === bookId);
+                    
+                    if (cartItem) {
+                        cartItem.quantity += 1;
+                        updateCartUI();
+                        saveToLocalStorage();
+                    }
+                });
+            });
+            
+            // تقليل الكمية
+            document.querySelectorAll('.decrease-quantity').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const bookId = parseInt(this.getAttribute('data-id'));
+                    const cartItem = state.cart.find(item => item.id === bookId);
+                    
+                    if (cartItem) {
+                        if (cartItem.quantity > 1) {
+                            cartItem.quantity -= 1;
+                        } else {
+                            // إزالة العنصر إذا كانت الكمية 1
+                            state.cart = state.cart.filter(item => item.id !== bookId);
+                        }
+                        
+                        updateCartUI();
+                        saveToLocalStorage();
+                    }
+                });
+            });
+            
+            // تحديث الكمية يدوياً
+            document.querySelectorAll('.quantity-input').forEach(input => {
+                input.addEventListener('change', function() {
+                    const bookId = parseInt(this.getAttribute('data-id'));
+                    const newQuantity = parseInt(this.value);
+                    
+                    if (newQuantity < 1) {
+                        this.value = 1;
+                        return;
+                    }
+                    
+                    const cartItem = state.cart.find(item => item.id === bookId);
+                    
+                    if (cartItem) {
+                        cartItem.quantity = newQuantity;
+                        updateCartUI();
+                        saveToLocalStorage();
+                    }
+                });
+            });
+            
+            // إزالة العنصر
+            document.querySelectorAll('.remove-item').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const bookId = parseInt(this.getAttribute('data-id'));
+                    
+                    const confirmMessage = state.isArabic ? 
+                        'هل أنت متأكد من إزالة هذا الكتاب من السلة؟' :
+                        'Are you sure you want to remove this book from your cart?';
+                    
+                    if (confirm(confirmMessage)) {
+                        state.cart = state.cart.filter(item => item.id !== bookId);
+                        updateCartUI();
+                        saveToLocalStorage();
+                    }
+                });
+            });
+        }
+
+        // حساب إجمالي السلة
+        function calculateCartTotal() {
+            let subtotal = 0;
+            let discount = 0;
+            
+            state.cart.forEach(cartItem => {
+                const book = books.find(b => b.id === cartItem.id);
+                subtotal += book.price * cartItem.quantity;
+                
+                if (book.oldPrice) {
+                    discount += (book.oldPrice - book.price) * cartItem.quantity;
+                }
+            });
+            
+            const total = subtotal - discount;
+            
+            return {
+                subtotal,
+                discount,
+                total
+            };
+        }
+
+        // عرض عناصر التحكم في توفر الكتب
+        function renderBookAvailabilityControls() {
+            const container = document.getElementById('bookAvailabilityList');
+            container.innerHTML = '';
+            
+            books.forEach(book => {
+                const control = document.createElement('div');
+                control.className = 'availability-toggle';
+                control.innerHTML = `
+                    <span>${book.title}</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" ${book.available ? 'checked' : ''} data-id="${book.id}">
+                        <span class="toggle-slider"></span>
+                    </label>
+                `;
+                
+                const toggle = control.querySelector('input');
+                toggle.addEventListener('change', function() {
+                    const bookId = parseInt(this.getAttribute('data-id'));
+                    const bookIndex = books.findIndex(b => b.id === bookId);
+                    
+                    if (bookIndex !== -1) {
+                        books[bookIndex].available = this.checked;
+                        saveToLocalStorage();
+                        
+                        // تحديث عرض الكتب
+                        renderBooks();
+                        renderAllBooks();
+                    }
+                });
+                
+                container.appendChild(control);
+            });
+        }
+
+        // إضافة دعم تغيير حجم النافذة
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                document.getElementById('navLinks').classList.remove('active');
+            }
+        });
+
+        // تحديث القسم النشط عند تغيير التجزئة
+        window.addEventListener('hashchange', showActiveSection);
+    </script>
+</body>
+</html>
