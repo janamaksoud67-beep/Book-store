@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر كتب محمد حلاق | Mohammad Hallaq Bookstore</title>
+    <title>متجر كتب محمد حلاق</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -110,6 +110,7 @@
             color: white;
             font-size: 24px;
             cursor: pointer;
+            z-index: 1001;
         }
         
         .cart-icon {
@@ -129,27 +130,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-        
-        /* Language Switcher */
-        .language-switcher {
-            margin-right: 20px;
-        }
-        
-        .lang-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            padding: 5px 15px;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .lang-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
         }
         
         /* User Profile in Header */
@@ -272,19 +252,21 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             margin-bottom: 50px;
         }
         
         .category {
             background-color: white;
             border-radius: var(--border-radius);
-            padding: 20px 30px;
+            padding: 15px 20px;
             box-shadow: var(--shadow);
             cursor: pointer;
             transition: all 0.3s;
             text-align: center;
-            min-width: 150px;
+            min-width: 130px;
+            flex: 1;
+            max-width: 200px;
         }
         
         .category:hover {
@@ -293,7 +275,7 @@
         }
         
         .category i {
-            font-size: 36px;
+            font-size: 30px;
             color: var(--accent-color);
             margin-bottom: 10px;
         }
@@ -311,7 +293,7 @@
         .books-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
+            gap: 25px;
             margin-bottom: 60px;
         }
         
@@ -940,99 +922,6 @@
             box-shadow: var(--shadow);
         }
         
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .about-content,
-            .contact-container,
-            .cart-container {
-                flex-direction: column;
-            }
-            
-            .about-image {
-                order: -1;
-            }
-            
-            .hero h2 {
-                font-size: 32px;
-            }
-            
-            .admin-panel {
-                width: 300px;
-                left: -300px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                right: -100%;
-                flex-direction: column;
-                background-color: var(--primary-color);
-                width: 100%;
-                text-align: center;
-                padding: 20px 0;
-                transition: right 0.3s;
-                box-shadow: var(--shadow);
-                z-index: 999;
-            }
-            
-            .nav-links.active {
-                right: 0;
-            }
-            
-            .nav-links li {
-                margin: 10px 0;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .hero {
-                padding: 70px 0;
-            }
-            
-            .hero h2 {
-                font-size: 28px;
-            }
-            
-            .section-title {
-                font-size: 28px;
-            }
-            
-            .user-profile span {
-                display: none;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .book-card {
-                margin: 0 auto;
-                max-width: 300px;
-            }
-            
-            .cart-item {
-                flex-direction: column;
-            }
-            
-            .cart-item-image {
-                width: 100%;
-                height: 200px;
-                margin-left: 0;
-                margin-bottom: 15px;
-            }
-            
-            .login-container {
-                padding: 30px 20px;
-            }
-            
-            .admin-panel {
-                width: 100%;
-                left: -100%;
-            }
-        }
-        
         /* Page Sections */
         .page-section {
             display: none;
@@ -1162,6 +1051,203 @@
         input:checked + .toggle-slider:before {
             transform: translateX(26px);
         }
+        
+        /* Mobile Navigation Menu */
+.mobile-nav-links {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    transition: right 0.3s ease-in-out;
+    box-shadow: var(--shadow);
+    z-index: 999;
+    list-style: none;
+}
+
+.mobile-nav-links.active {
+    right: 0;
+}
+
+.mobile-nav-links li {
+    margin: 15px 0;
+}
+/* إصلاح الروابط في القائمة المتنقلة */
+.mobile-nav-links a {
+    color: white !important; /* لجعل النص أبيض */
+    text-decoration: none !important; /* لإزالة الخط التحتي */
+    display: block;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.mobile-nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--accent-color) !important;
+}
+
+.mobile-nav-links a.active {
+    color: var(--accent-color) !important;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* إصلاح خاص لعداد السلة في القائمة المتنقلة */
+.mobile-nav-links .cart-count {
+    position: relative;
+    top: auto;
+    right: auto;
+    display: inline-block;
+    margin-right: 8px;
+}
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container,
+            .cart-container {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+            
+            .hero h2 {
+                font-size: 32px;
+            }
+            
+            .admin-panel {
+                width: 300px;
+                left: -300px;
+            }
+            
+            .categories {
+                gap: 10px;
+            }
+            
+            .category {
+                min-width: 120px;
+                padding: 12px 15px;
+            }
+            
+            .category i {
+                font-size: 26px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding: 70px 0;
+            }
+            
+            .hero h2 {
+                font-size: 28px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .user-profile span {
+                display: none;
+            }
+            
+            .categories {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+                margin-bottom: 30px;
+            }
+            
+            .category {
+                flex: 0 0 auto;
+            }
+            
+            .books-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .book-card {
+                margin: 0 auto;
+                max-width: 300px;
+            }
+            
+            .cart-item {
+                flex-direction: column;
+            }
+            
+            .cart-item-image {
+                width: 100%;
+                height: 200px;
+                margin-left: 0;
+                margin-bottom: 15px;
+            }
+            
+            .login-container {
+                padding: 30px 20px;
+            }
+            
+            .admin-panel {
+                width: 100%;
+                left: -100%;
+            }
+            
+            .hero h2 {
+                font-size: 24px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .book-search {
+                margin: 20px 0;
+            }
+            
+            .search-input {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .book-card {
+                max-width: 100%;
+            }
+            
+            .category {
+                min-width: 100px;
+                padding: 10px;
+            }
+            
+            .category h3 {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1170,83 +1256,114 @@
         <div class="container header-content">
             <div class="logo">
                 <i class="fas fa-book"></i>
-                <h1 id="store-title">متجر كتب محمد حلاق</h1>
+                <h1>متجر كتب محمد حلاق</h1>
             </div>
             
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
             
-            <div class="language-switcher">
-                <button class="lang-btn" id="langToggle">
-                    <i class="fas fa-globe"></i>
-                    <span id="currentLang">العربية</span>
-                </button>
+            <div class="user-profile user-menu" id="userProfileContainer" style="display: none;">
+                <div class="user-avatar" id="headerUserAvatar">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="صورة المستخدم">
+                </div>
+                <span id="userNameHeader"></span>
+                <div class="dropdown-menu" id="userDropdown">
+                    <a href="#login" class="nav-link" data-section="login">الملف الشخصي</a>
+                    <a href="#" id="userLogout">تسجيل الخروج</a>
+                </div>
             </div>
             
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home" class="nav-link active" data-section="home" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
-                <li><a href="#books" class="nav-link" data-section="books" data-ar="الكتب" data-en="Books">الكتب</a></li>
-                <li><a href="#cart" class="nav-link" data-section="cart" data-ar="السلة" data-en="Cart">السلة <span class="cart-count">0</span></a></li>
-                <li><a href="#about" class="nav-link" data-section="about" data-ar="من نحن" data-en="About">من نحن</a></li>
-                <li><a href="#contact" class="nav-link" data-section="contact" data-ar="اتصل بنا" data-en="Contact">اتصل بنا</a></li>
-                <li><a href="#reviews" class="nav-link" data-section="reviews" data-ar="التقييمات" data-en="Reviews">التقييمات</a></li>
-                <li id="loginNavItem"><a href="#login" class="nav-link" data-section="login" data-ar="تسجيل الدخول" data-en="Login">تسجيل الدخول</a></li>
+            <ul class="nav-links" id="desktopNavLinks">
+                <li><a href="#home" class="nav-link active" data-section="home">الرئيسية</a></li>
+                <li><a href="#books" class="nav-link" data-section="books">الكتب</a></li>
+                <li><a href="#cart" class="nav-link" data-section="cart">السلة <span class="cart-count">0</span></a></li>
+                <li><a href="#about" class="nav-link" data-section="about">من نحن</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">اتصل بنا</a></li>
+                <li><a href="#reviews" class="nav-link" data-section="reviews">التقييمات</a></li>
+                <li id="loginNavItem"><a href="#login" class="nav-link" data-section="login">تسجيل الدخول</a></li>
             </ul>
         </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <ul class="mobile-nav-links" id="mobileNavLinks">
+            <li><a href="#home" class="nav-link active" data-section="home">الرئيسية</a></li>
+            <li><a href="#books" class="nav-link" data-section="books">الكتب</a></li>
+            <li><a href="#cart" class="nav-link" data-section="cart">السلة <span class="cart-count">0</span></a></li>
+            <li><a href="#about" class="nav-link" data-section="about">من نحن</a></li>
+            <li><a href="#contact" class="nav-link" data-section="contact">اتصل بنا</a></li>
+            <li><a href="#reviews" class="nav-link" data-section="reviews">التقييمات</a></li>
+            <li id="mobileLoginNavItem"><a href="#login" class="nav-link" data-section="login">تسجيل الدخول</a></li>
+        </ul>
     </header>
 
     <!-- Home Section -->
     <section id="home" class="page-section active">
         <div class="hero">
             <div class="container">
-                <h2 id="hero-title">مرحباً بكم في متجر كتب محمد حلاق</h2>
-                <p id="hero-text">اكتشف مجموعة رائعة من الكتب في مختلف المجالات: العلوم الاجتماعية، السياسة، القصص والروايات، تطوير الذات، علم النفس وغيرها الكثير. نحن نقدم أجمل الكتب بأفضل الأسعار.</p>
-                <a href="#books" class="btn" data-ar="استعرض الكتب" data-en="Browse Books">استعرض الكتب</a>
+                <h2>مرحباً بكم في متجر كتب محمد حلاق</h2>
+                <p>اكتشف مجموعة رائعة من الكتب في مختلف المجالات: العلوم الاجتماعية، السياسة، القصص والروايات، تطوير الذات، علم النفس وغيرها الكثير. نحن نقدم أجمل الكتب بأفضل الأسعار.</p>
+                <a href="#books" class="btn">استعرض الكتب</a>
             </div>
         </div>
 
         <div class="container">
-            <h2 class="section-title" id="categories-title">فئات الكتب</h2>
+            <h2 class="section-title">فئات الكتب</h2>
             <div class="categories">
                 <div class="category active" data-category="all">
                     <i class="fas fa-book-open"></i>
-                    <h3 data-ar="جميع الكتب" data-en="All Books">جميع الكتب</h3>
+                    <h3>جميع الكتب</h3>
                 </div>
                 <div class="category" data-category="psychology">
                     <i class="fas fa-brain"></i>
-                    <h3 data-ar="علم النفس" data-en="Psychology">علم النفس</h3>
+                    <h3>علم النفس</h3>
                 </div>
                 <div class="category" data-category="sociology">
                     <i class="fas fa-users"></i>
-                    <h3 data-ar="علم الاجتماع" data-en="Sociology">علم الاجتماع</h3>
+                    <h3>علم الاجتماع</h3>
                 </div>
                 <div class="category" data-category="novels">
                     <i class="fas fa-book-reader"></i>
-                    <h3 data-ar="روايات" data-en="Novels">روايات</h3>
+                    <h3>روايات</h3>
+                </div>
+                <div class="category" data-category="horror">
+                    <i class="fas fa-ghost"></i>
+                    <h3>رعب</h3>
                 </div>
                 <div class="category" data-category="selfdev">
                     <i class="fas fa-user-check"></i>
-                    <h3 data-ar="تطوير الذات" data-en="Self Development">تطوير الذات</h3>
+                    <h3>تطوير الذات</h3>
                 </div>
                 <div class="category" data-category="philosophy">
                     <i class="fas fa-search"></i>
-                    <h3 data-ar="فلسفة" data-en="Philosophy">فلسفة</h3>
+                    <h3>فلسفة</h3>
                 </div>
                 <div class="category" data-category="politics">
                     <i class="fas fa-landmark"></i>
-                    <h3 data-ar="سياسية" data-en="Politics">سياسية</h3>
+                    <h3>سياسية</h3>
                 </div>
                 <div class="category" data-category="science">
                     <i class="fas fa-flask"></i>
-                    <h3 data-ar="علوم" data-en="Science">علوم</h3>
+                    <h3>علوم</h3>
+                </div>
+                <div class="category" data-category="history">
+                    <i class="fas fa-history"></i>
+                    <h3>تاريخ</h3>
+                </div>
+                <div class="category" data-category="religion">
+                    <i class="fas fa-pray"></i>
+                    <h3>دينية</h3>
+                </div>
+                <div class="category" data-category="children">
+                    <i class="fas fa-child"></i>
+                    <h3>أطفال</h3>
                 </div>
             </div>
 
-            <h2 class="section-title" id="featured-title">أجمل الكتب</h2>
+            <h2 class="section-title">أجمل الكتب</h2>
             
             <div class="book-search">
-                <input type="text" class="search-input" id="bookSearch" placeholder="ابحث عن كتاب..." data-ar-placeholder="ابحث عن كتاب..." data-en-placeholder="Search for a book...">
+                <input type="text" class="search-input" id="bookSearch" placeholder="ابحث عن كتاب...">
                 <button class="search-btn" id="searchBtn">
                     <i class="fas fa-search"></i>
                 </button>
@@ -1259,20 +1376,16 @@
             <div class="pagination" id="featuredPagination">
                 <!-- Pagination will be added here by JavaScript -->
             </div>
-
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3293.3652039961247!2d35.84939331522435!3d34.42436918052089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1521f6f8d5d5b5b5%3A0x9c9c9c9c9c9c9c9c!2sTripoli%2C%20Lebanon!5e0!3m2!1sen!2slb!4v1629999999999!5m2!1sen!2slb" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
         </div>
     </section>
 
     <!-- Books Section -->
     <section id="books" class="page-section">
         <div class="container">
-            <h2 class="section-title" id="all-books-title">جميع الكتب</h2>
+            <h2 class="section-title">جميع الكتب</h2>
             
             <div class="book-search">
-                <input type="text" class="search-input" id="allBookSearch" placeholder="ابحث عن كتاب..." data-ar-placeholder="ابحث عن كتاب..." data-en-placeholder="Search for a book...">
+                <input type="text" class="search-input" id="allBookSearch" placeholder="ابحث عن كتاب...">
                 <button class="search-btn" id="allSearchBtn">
                     <i class="fas fa-search"></i>
                 </button>
@@ -1291,36 +1404,36 @@
     <!-- Cart Section -->
     <section id="cart" class="page-section">
         <div class="container cart-section">
-            <h2 class="section-title" id="cart-title">سلة التسوق</h2>
+            <h2 class="section-title">سلة التسوق</h2>
             <div class="cart-container">
                 <div class="cart-items" id="cartItems">
                     <!-- Cart items will be loaded here by JavaScript -->
                     <div class="empty-cart-message" id="emptyCartMessage">
-                        <p data-ar="سلة التسوق فارغة. أضف بعض الكتب من صفحة الكتب." data-en="Your cart is empty. Add some books from the books page.">سلة التسوق فارغة. أضف بعض الكتب من صفحة الكتب.</p>
-                        <a href="#books" class="btn" data-ar="استعرض الكتب" data-en="Browse Books">استعرض الكتب</a>
+                        <p>سلة التسوق فارغة. أضف بعض الكتب من صفحة الكتب.</p>
+                        <a href="#books" class="btn">استعرض الكتب</a>
                     </div>
                 </div>
                 
                 <div class="cart-summary">
-                    <h3 data-ar="ملخص الطلب" data-en="Order Summary">ملخص الطلب</h3>
+                    <h3>ملخص الطلب</h3>
                     <div class="summary-item">
-                        <span data-ar="عدد الكتب:" data-en="Items:">عدد الكتب:</span>
+                        <span>عدد الكتب:</span>
                         <span id="summaryItemsCount">0</span>
                     </div>
                     <div class="summary-item">
-                        <span data-ar="المجموع:" data-en="Subtotal:">المجموع:</span>
+                        <span>المجموع:</span>
                         <span id="summarySubtotal">$0.00</span>
                     </div>
                     <div class="summary-item">
-                        <span data-ar="التخفيض:" data-en="Discount:">التخفيض:</span>
+                        <span>التخفيض:</span>
                         <span id="summaryDiscount">$0.00</span>
                     </div>
                     <div class="summary-item summary-total">
-                        <span data-ar="المجموع الكلي:" data-en="Total:">المجموع الكلي:</span>
+                        <span>المجموع الكلي:</span>
                         <span id="summaryTotal">$0.00</span>
                     </div>
                     <button class="btn whatsapp-btn" id="checkoutBtn">
-                        <i class="fab fa-whatsapp"></i> <span data-ar="إتمام الطلب عبر واتساب" data-en="Checkout via WhatsApp">إتمام الطلب عبر واتساب</span>
+                        <i class="fab fa-whatsapp"></i> <span>إتمام الطلب عبر واتساب</span>
                     </button>
                 </div>
             </div>
@@ -1330,15 +1443,15 @@
     <!-- About Section -->
     <section id="about" class="page-section">
         <div class="container about-section">
-            <h2 class="section-title" id="about-title">من نحن</h2>
+            <h2 class="section-title">من نحن</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h2 id="about-name">مرحباً، أنا محمد حلاق</h2>
-                    <p id="about-text-1">أنا مؤسس متجر كتب محمد حلاق، شغوف بالكتب والمعرفة. بدأت هذا المشروع بهدف توفير أجمل الكتب في مختلف المجالات للقراء العرب.</p>
-                    <p id="about-text-2">نحن نؤمن بأهمية القراءة في تنمية الفرد والمجتمع، ونسعى جاهدين لتقديم أفضل الكتب في العلوم الاجتماعية، السياسة، القصص والروايات، تطوير الذات، علم النفس وغيرها من المجالات.</p>
-                    <p id="about-text-3">متجرنا يقع في لبنان، طرابلس، ونقدم خدمة التوصيل في جميع أنحاء لبنان. يمكنكم التواصل معنا عبر الهاتف أو عبر البريد الإلكتروني: mhammadhallak085@gmail.com</p>
+                    <h2>مرحباً، أنا محمد حلاق</h2>
+                    <p>أنا مؤسس متجر كتب محمد حلاق، شغوف بالكتب والمعرفة. بدأت هذا المشروع بهدف توفير أجمل الكتب في مختلف المجالات للقراء العرب.</p>
+                    <p>نحن نؤمن بأهمية القراءة في تنمية الفرد والمجتمع، ونسعى جاهدين لتقديم أفضل الكتب في العلوم الاجتماعية، السياسة، القصص والروايات، تطوير الذات، علم النفس وغيرها من المجالات.</p>
+                    <p>متجرنا يقع في لبنان، طرابلس، ونقدم خدمة التوصيل في جميع أنحاء لبنان. يمكنكم التواصل معنا عبر الهاتف أو عبر البريد الإلكتروني: mhammadhallak085@gmail.com</p>
                     <div class="visitor-counter">
-                        <p data-ar="عدد زوار الموقع:" data-en="Website Visitors:">عدد زوار الموقع: <span id="visitorCount">0</span></p>
+                        <p>عدد زوار الموقع: <span id="visitorCount">0</span></p>
                     </div>
                 </div>
                 <div class="about-image">
@@ -1351,71 +1464,71 @@
     <!-- Contact Section -->
     <section id="contact" class="page-section">
         <div class="container contact-section">
-            <h2 class="section-title" id="contact-title">اتصل بنا</h2>
+            <h2 class="section-title">اتصل بنا</h2>
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3 data-ar="معلومات الاتصال" data-en="Contact Information">معلومات الاتصال</h3>
+                    <h3>معلومات الاتصال</h3>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
-                            <h4 data-ar="العنوان" data-en="Address">العنوان</h4>
+                            <h4>العنوان</h4>
                             <p>لبنان، طرابلس</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
                         <div>
-                            <h4 data-ar="الهاتف" data-en="Phone">الهاتف</h4>
+                            <h4>الهاتف</h4>
                             <p>+961 81 400 899</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <div>
-                            <h4 data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</h4>
+                            <h4>البريد الإلكتروني</h4>
                             <p>mhammadhallak085@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-clock"></i>
                         <div>
-                            <h4 data-ar="ساعات العمل" data-en="Working Hours">ساعات العمل</h4>
-                            <p data-ar="الاثنين - السبت: 9 صباحاً - 6 مساءً" data-en="Monday - Friday: 9 AM - 6 PM">الاثنين - السبت: 9 صباحاً - 6 مساءً</p>
-                            <p data-ar="الجمعة: 10 صباحاً - 4 مساءً" data-en="Friday: 10 AM - 4 PM">الجمعة: 10 صباحاً - 4 مساءً</p>
+                            <h4>ساعات العمل</h4>
+                            <p>الاثنين - السبت: 9 صباحاً - 6 مساءً</p>
+                            <p>الجمعة: 10 صباحاً - 4 مساءً</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="contact-form">
-                    <h3 data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</h3>
+                    <h3>تواصل معنا</h3>
                     <form id="contactForm">
                         <div class="form-group">
-                            <label for="name" data-ar="الاسم الكامل" data-en="Full Name">الاسم الكامل</label>
+                            <label for="name">الاسم الكامل</label>
                             <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone" data-ar="رقم الهاتف" data-en="Phone Number">رقم الهاتف</label>
+                            <label for="phone">رقم الهاتف</label>
                             <input type="tel" id="phone" name="phone" required>
                         </div>
                         <div class="form-group">
-                            <label for="email" data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</label>
+                            <label for="email">البريد الإلكتروني</label>
                             <input type="email" id="email" name="email">
                         </div>
                         <div class="form-group">
-                            <label for="subject" data-ar="الموضوع" data-en="Subject">الموضوع</label>
+                            <label for="subject">الموضوع</label>
                             <select id="subject" name="subject">
-                                <option value="general" data-ar="استعلام عام" data-en="General Inquiry">استعلام عام</option>
-                                <option value="order" data-ar="استفسار عن طلب" data-en="Order Inquiry">استفسار عن طلب</option>
-                                <option value="book" data-ar="استفسار عن كتاب" data-en="Book Inquiry">استفسار عن كتاب</option>
-                                <option value="other" data-ar="موضوع آخر" data-en="Other">موضوع آخر</option>
+                                <option value="general">استعلام عام</option>
+                                <option value="order">استفسار عن طلب</option>
+                                <option value="book">استفسار عن كتاب</option>
+                                <option value="other">موضوع آخر</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="message" data-ar="الرسالة" data-en="Message">الرسالة</label>
+                            <label for="message">الرسالة</label>
                             <textarea id="message" name="message" required></textarea>
                         </div>
                         <button type="submit" class="btn whatsapp-btn">
-                            <i class="fab fa-whatsapp"></i> <span data-ar="إرسال عبر واتساب" data-en="Send via WhatsApp">إرسال عبر واتساب</span>
+                            <i class="fab fa-whatsapp"></i> <span>إرسال عبر واتساب</span>
                         </button>
                     </form>
                 </div>
@@ -1426,7 +1539,7 @@
     <!-- Reviews Section -->
     <section id="reviews" class="page-section">
         <div class="container reviews-section">
-            <h2 class="section-title" id="reviews-title">تقييمات العملاء</h2>
+            <h2 class="section-title">تقييمات العملاء</h2>
             <div class="reviews-grid">
                 <div class="review-card">
                     <div class="review-header">
@@ -1435,7 +1548,7 @@
                         </div>
                         <div>
                             <h4>أحمد محمد</h4>
-                            <p data-ar="منذ أسبوع" data-en="1 week ago">منذ أسبوع</p>
+                            <p>منذ أسبوع</p>
                         </div>
                     </div>
                     <div class="review-stars">
@@ -1445,7 +1558,7 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p data-ar="تجربة رائعة! الكتاب وصل بسرعة وكان بحالة ممتازة. شكراً لمتجر كتب محمد حلاق على الخدمة المميزة." data-en="Great experience! The book arrived quickly and in excellent condition. Thank you Mohammad Hallaq Bookstore for the excellent service.">تجربة رائعة! الكتاب وصل بسرعة وكان بحالة ممتازة. شكراً لمتجر كتب محمد حلاق على الخدمة المميزة.</p>
+                    <p>تجربة رائعة! الكتاب وصل بسرعة وكان بحالة ممتازة. شكراً لمتجر كتب محمد حلاق على الخدمة المميزة.</p>
                 </div>
                 
                 <div class="review-card">
@@ -1455,7 +1568,7 @@
                         </div>
                         <div>
                             <h4>سارة علي</h4>
-                            <p data-ar="منذ 3 أيام" data-en="3 days ago">منذ 3 أيام</p>
+                            <p>منذ 3 أيام</p>
                         </div>
                     </div>
                     <div class="review-stars">
@@ -1465,7 +1578,7 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <p data-ar="مجموعة رائعة من الكتب في مختلف المجالات. أنصح الجميع بزيارة هذا المتجر الرائع." data-en="A wonderful collection of books in various fields. I recommend everyone to visit this wonderful store.">مجموعة رائعة من الكتب في مختلف المجالات. أنصح الجميع بزيارة هذا المتجر الرائع.</p>
+                    <p>مجموعة رائعة من الكتب في مختلف المجالات. أنصح الجميع بزيارة هذا المتجر الرائع.</p>
                 </div>
                 
                 <div class="review-card">
@@ -1475,7 +1588,7 @@
                         </div>
                         <div>
                             <h4>خالد حسن</h4>
-                            <p data-ar="منذ شهر" data-en="1 month ago">منذ شهر</p>
+                            <p>منذ شهر</p>
                         </div>
                     </div>
                     <div class="review-stars">
@@ -1485,7 +1598,7 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p data-ar="أفضل متجر كتب في لبنان! الكتب أصلية والسعر مناسب. شكراً جزيلاً على الخدمة المميزة." data-en="The best bookstore in Lebanon! The books are original and the price is reasonable. Thank you very much for the excellent service.">أفضل متجر كتب في لبنان! الكتب أصلية والسعر مناسب. شكراً جزيلاً على الخدمة المميزة.</p>
+                    <p>أفضل متجر كتب في لبنان! الكتب أصلية والسعر مناسب. شكراً جزيلاً على الخدمة المميزة.</p>
                 </div>
             </div>
         </div>
@@ -1496,56 +1609,56 @@
         <div class="container login-section">
             <div class="login-container" id="loginContainer">
                 <div class="login-form" id="loginFormSection">
-                    <h2 id="login-title">تسجيل الدخول</h2>
+                    <h2>تسجيل الدخول</h2>
                     <div class="profile-preview" id="profilePreview">
                         <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="صورة المستخدم" id="profileImage">
                     </div>
                     <form id="loginForm">
                         <div class="form-group">
-                            <label for="loginName" data-ar="الاسم الكامل" data-en="Full Name">الاسم الكامل</label>
+                            <label for="loginName">الاسم الكامل</label>
                             <input type="text" id="loginName" name="loginName" required>
                         </div>
                         <div class="form-group">
-                            <label for="loginPhone" data-ar="رقم الهاتف" data-en="Phone Number">رقم الهاتف</label>
+                            <label for="loginPhone">رقم الهاتف</label>
                             <input type="tel" id="loginPhone" name="loginPhone" required>
                         </div>
                         <div class="form-group">
-                            <label for="profilePicture" data-ar="صورة شخصية (اختياري)" data-en="Profile Picture (Optional)">صورة شخصية (اختياري)</label>
+                            <label for="profilePicture">صورة شخصية (اختياري)</label>
                             <input type="file" id="profilePicture" name="profilePicture" accept="image/*">
                         </div>
-                        <button type="submit" class="btn" data-ar="تسجيل الدخول" data-en="Login">تسجيل الدخول</button>
+                        <button type="submit" class="btn">تسجيل الدخول</button>
                     </form>
                     <div class="visitor-counter" id="userStats" style="display: none; margin-top: 20px;">
-                        <p data-ar="مرحباً" data-en="Welcome">مرحباً <span id="userName"></span>!</p>
-                        <p data-ar="عدد مرات دخولك:" data-en="Login Count:">عدد مرات دخولك: <span id="loginCount">0</span></p>
-                        <p data-ar="آخر دخول:" data-en="Last Login:">آخر دخول: <span id="lastLogin">-</span></p>
+                        <p>مرحباً <span id="userName"></span>!</p>
+                        <p>عدد مرات دخولك: <span id="loginCount">0</span></p>
+                        <p>آخر دخول: <span id="lastLogin">-</span></p>
                     </div>
                 </div>
                 
                 <div class="profile-edit-form" id="profileEditSection" style="display: none;">
-                    <h2 id="edit-profile-title">تعديل الملف الشخصي</h2>
+                    <h2>تعديل الملف الشخصي</h2>
                     <div class="profile-preview" id="editProfilePreview">
                         <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="صورة المستخدم" id="editProfileImage">
                     </div>
                     <form id="editProfileForm">
                         <div class="form-group">
-                            <label for="editName" data-ar="الاسم الكامل" data-en="Full Name">الاسم الكامل</label>
+                            <label for="editName">الاسم الكامل</label>
                             <input type="text" id="editName" name="editName" required>
                         </div>
                         <div class="form-group">
-                            <label for="editPhone" data-ar="رقم الهاتف" data-en="Phone Number">رقم الهاتف</label>
+                            <label for="editPhone">رقم الهاتف</label>
                             <input type="tel" id="editPhone" name="editPhone" required>
                         </div>
                         <div class="form-group">
-                            <label for="editProfilePicture" data-ar="تغيير الصورة الشخصية" data-en="Change Profile Picture">تغيير الصورة الشخصية</label>
+                            <label for="editProfilePicture">تغيير الصورة الشخصية</label>
                             <input type="file" id="editProfilePicture" name="editProfilePicture" accept="image/*">
                         </div>
                         <div class="form-group">
-                            <label for="editEmail" data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</label>
+                            <label for="editEmail">البريد الإلكتروني</label>
                             <input type="email" id="editEmail" name="editEmail">
                         </div>
-                        <button type="submit" class="btn" data-ar="حفظ التغييرات" data-en="Save Changes">حفظ التغييرات</button>
-                        <button type="button" class="btn" id="logoutBtn" style="background: var(--secondary-color); margin-top: 10px;" data-ar="تسجيل الخروج" data-en="Logout">تسجيل الخروج</button>
+                        <button type="submit" class="btn">حفظ التغييرات</button>
+                        <button type="button" class="btn" id="logoutBtn" style="background: var(--secondary-color); margin-top: 10px;">تسجيل الخروج</button>
                     </form>
                 </div>
             </div>
@@ -1557,28 +1670,28 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3 id="footer-store-name">متجر كتب محمد حلاق</h3>
-                    <p id="footer-description">نقدم أجمل الكتب في مختلف المجالات بأفضل الأسعار. نحن نؤمن بأهمية القراءة في تنمية الفرد والمجتمع.</p>
+                    <h3>متجر كتب محمد حلاق</h3>
+                    <p>نقدم أجمل الكتب في مختلف المجالات بأفضل الأسعار. نحن نؤمن بأهمية القراءة في تنمية الفرد والمجتمع.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/mohammad.hallak.287951"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/mohammad.phallak/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/Mohamma4893376"><i class="fab fa-twitter"></i></a>
                         <a href="https://wa.me/96181400899" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-column">
-                    <h3 data-ar="روابط سريعة" data-en="Quick Links">روابط سريعة</h3>
+                    <h3>روابط سريعة</h3>
                     <ul style="list-style: none;">
-                        <li style="margin-bottom: 10px;"><a href="#home" style="color: #ddd; text-decoration: none;" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
-                        <li style="margin-bottom: 10px;"><a href="#books" style="color: #ddd; text-decoration: none;" data-ar="الكتب" data-en="Books">الكتب</a></li>
-                        <li style="margin-bottom: 10px;"><a href="#about" style="color: #ddd; text-decoration: none;" data-ar="من نحن" data-en="About">من نحن</a></li>
-                        <li style="margin-bottom: 10px;"><a href="#contact" style="color: #ddd; text-decoration: none;" data-ar="اتصل بنا" data-en="Contact">اتصل بنا</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#home" style="color: #ddd; text-decoration: none;">الرئيسية</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#books" style="color: #ddd; text-decoration: none;">الكتب</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#about" style="color: #ddd; text-decoration: none;">من نحن</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#contact" style="color: #ddd; text-decoration: none;">اتصل بنا</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
-                    <h3 data-ar="معلومات الاتصال" data-en="Contact Info">معلومات الاتصال</h3>
+                    <h3>معلومات الاتصال</h3>
                     <p><i class="fas fa-map-marker-alt" style="margin-left: 8px;"></i> لبنان، طرابلس</p>
                     <p><i class="fas fa-phone" style="margin-left: 8px;"></i> +961 81 400 899</p>
                     <p><i class="fas fa-envelope" style="margin-left: 8px;"></i> mhammadhallak085@gmail.com</p>
@@ -1675,7 +1788,7 @@
             {
                 id: 4,
                 title: "علم النفس الاجتماعي",
-                author: "ديفيد مايرز",
+                author: "ديفيد مايرس",
                 description: "مرجع شامل في علم النفس الاجتماعي يشرح كيف يؤثر الأشخاص بعضهم في بعض في المواقف الاجتماعية.",
                 price: 35.75,
                 oldPrice: 0,
@@ -1749,15 +1862,16 @@
                 isNew: false,
                 rating: 4.7
             },
+            // رعب
             {
                 id: 8,
-                title: "الغريب",
-                author: "ألبير كامو",
-                description: "رواية فلسفية تناقش اللامعنى والعبث في الحياة الإنسانية.",
+                title: "دراكولا",
+                author: "برام ستوكر",
+                description: "رواية رعب كلاسيكية عن مصاص الدماء الكونت دراكولا الذي ينتقل من قلعته في ترانسيلفانيا إلى إنجلترا.",
                 price: 19.50,
                 oldPrice: 0,
                 discount: 0,
-                category: "novels",
+                category: "horror",
                 images: [
                     "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
                     "https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
@@ -1768,9 +1882,28 @@
                 isNew: false,
                 rating: 4.5
             },
-            // تطوير الذات
             {
                 id: 9,
+                title: "فرانكنشتاين",
+                author: "ماري شيلي",
+                description: "رواية رعب قوطية عن عالم يخلق كائناً حياً في مختبره ويندم على فعلته عندما يتحول المخلوق إلى وحش.",
+                price: 20.99,
+                oldPrice: 24.99,
+                discount: 16,
+                category: "horror",
+                images: [
+                    "https://images.unsplash.com/photo-1532009877282-334007c3c154?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1533735380053-eb8d0759b24a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                ],
+                buyers: 680,
+                readers: 1500,
+                available: true,
+                isNew: false,
+                rating: 4.6
+            },
+            // تطوير الذات
+            {
+                id: 10,
                 title: "فن اللامبالاة",
                 author: "مارك مانسون",
                 description: "كتاب عن كيفية عيش حياة جيدة من خلال الاهتمام بما هو مهم حقاً.",
@@ -1789,7 +1922,7 @@
                 rating: 4.7
             },
             {
-                id: 10,
+                id: 11,
                 title: "الأسبوع الذي غير حياتي",
                 author: "روبين شارما",
                 description: "كتاب عن تحويل حياتك في أسبوع واحد من خلال عادات وتفكير جديد.",
@@ -1809,7 +1942,7 @@
             },
             // فلسفة
             {
-                id: 11,
+                id: 12,
                 title: "هكذا تكلم زرادشت",
                 author: "فريدريك نيتشه",
                 description: "عمل فلسفي أدبي يعرض فلسفة نيتشه حول الإنسان المتفوق وقيم الحياة.",
@@ -1828,7 +1961,7 @@
                 rating: 4.6
             },
             {
-                id: 12,
+                id: 13,
                 title: "جمهورية أفلاطون",
                 author: "أفلاطون",
                 description: "حوار فلسفي كلاسيكي يناقش العدالة والنظام السياسي المثالي.",
@@ -1848,7 +1981,7 @@
             },
             // سياسية
             {
-                id: 13,
+                id: 14,
                 title: "صراع الحضارات",
                 author: "صموئيل هنتنغتون",
                 description: "تحليل عميق للعلاقات الدولية بعد الحرب الباردة ونظرية صراع الحضارات.",
@@ -1867,7 +2000,7 @@
                 rating: 4.5
             },
             {
-                id: 14,
+                id: 15,
                 title: "الأمير",
                 author: "نيكولو مكيافيلي",
                 description: "كتاب سياسي كلاسيكي يناقش فن الحكم واستخدام القوة في السياسة.",
@@ -1887,7 +2020,7 @@
             },
             // علوم
             {
-                id: 15,
+                id: 16,
                 title: "تاريخ موجز للزمن",
                 author: "ستيفن هوكينج",
                 description: "كتاب علمي شهير يشرح مفاهيم الكون والفيزياء بطريقة مبسطة.",
@@ -1906,7 +2039,7 @@
                 rating: 4.8
             },
             {
-                id: 16,
+                id: 17,
                 title: "الجين الأناني",
                 author: "ريتشارد دوكينز",
                 description: "كتاب علمي بيولوجي يشرح نظرية التطور من منظور الجينات.",
@@ -1924,19 +2057,39 @@
                 isNew: false,
                 rating: 4.5
             },
-            // كتب إضافية
+            // تاريخ
             {
-                id: 17,
-                title: "الإنسان يبحث عن المعنى",
-                author: "فيكتور فرانكل",
-                description: "كتاب نفسي عميق يستند إلى تجربة المؤلف في معسكرات الاعتقال النازية.",
-                price: 20.99,
+                id: 18,
+                title: "تاريخ الحضارات",
+                author: "ويل ديورانت",
+                description: "سلسلة كتب تاريخية ضخمة تغطي تاريخ الحضارات الإنسانية من العصور القديمة إلى العصر الحديث.",
+                price: 45.99,
+                oldPrice: 52.99,
+                discount: 13,
+                category: "history",
+                images: [
+                    "https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1505664194779-8beaceb93744?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                ],
+                buyers: 420,
+                readers: 1100,
+                available: true,
+                isNew: false,
+                rating: 4.7
+            },
+            // دينية
+            {
+                id: 19,
+                title: "تفسير القرآن الكريم",
+                author: "ابن كثير",
+                description: "من أشهر كتب تفسير القرآن الكريم، يتميز بمنهجه في تفسير القرآن بالقرآن والسنة النبوية.",
+                price: 39.99,
                 oldPrice: 0,
                 discount: 0,
-                category: "psychology",
+                category: "religion",
                 images: [
-                    "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                    "https://images.unsplash.com/photo-1593693399740-4c6c4b0c7f9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1603123857990-856c6c155e2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
                 ],
                 buyers: 980,
                 readers: 2200,
@@ -1944,62 +2097,25 @@
                 isNew: false,
                 rating: 4.9
             },
-            {
-                id: 18,
-                title: "المجتمع المفتوح وأعداؤه",
-                author: "كارل بوبر",
-                description: "دفاع فلسفي عن المجتمع المفتوح والديمقراطية ضد النزعات الشمولية.",
-                price: 31.75,
-                oldPrice: 36.75,
-                discount: 14,
-                category: "philosophy",
-                images: [
-                    "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                ],
-                buyers: 420,
-                readers: 1100,
-                available: true,
-                isNew: true,
-                rating: 4.3
-            },
-            {
-                id: 19,
-                title: "العالم كما أراه",
-                author: "ألبرت أينشتاين",
-                description: "مجموعة من مقالات أينشتاين حول العلم، الفلسفة، السياسة، والدين.",
-                price: 23.50,
-                oldPrice: 0,
-                discount: 0,
-                category: "science",
-                images: [
-                    "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                ],
-                buyers: 610,
-                readers: 1400,
-                available: true,
-                isNew: false,
-                rating: 4.6
-            },
+            // أطفال
             {
                 id: 20,
-                title: "المسؤولية الاجتماعية للشركات",
-                author: "بيتر دراكر",
-                description: "كتاب عن إدارة الأعمال والمسؤولية الاجتماعية للشركات في العصر الحديث.",
-                price: 26.99,
-                oldPrice: 31.99,
-                discount: 16,
-                category: "selfdev",
+                title: "مغامرات في بلاد العجائب",
+                author: "لويس كارول",
+                description: "قصة خيالية ممتعة للأطفال تحكي عن مغامرات أليس في بلاد العجائب الغريبة.",
+                price: 15.99,
+                oldPrice: 19.99,
+                discount: 20,
+                category: "children",
                 images: [
-                    "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                    "https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
                 ],
-                buyers: 540,
-                readers: 1200,
-                available: false,
+                buyers: 1340,
+                readers: 2900,
+                available: true,
                 isNew: true,
-                rating: 4.2
+                rating: 4.8
             }
         ];
 
@@ -2011,11 +2127,11 @@
             visitorCount: 0,
             userLoginCount: 0,
             lastLogin: null,
-            isArabic: true,
             currentPage: 1,
             booksPerPage: 8,
             searchQuery: '',
-            adminMode: false
+            adminMode: false,
+            mobileMenuOpen: false
         };
 
         // تهيئة التطبيق
@@ -2047,8 +2163,6 @@
             const savedVisitorCount = localStorage.getItem('bookstore_visitor_count');
             const savedUserLoginCount = localStorage.getItem('bookstore_user_login_count');
             const savedLastLogin = localStorage.getItem('bookstore_last_login');
-            const savedLanguage = localStorage.getItem('bookstore_language');
-            const savedBooks = localStorage.getItem('bookstore_books_data');
             
             if (savedCart) {
                 state.cart = JSON.parse(savedCart);
@@ -2070,17 +2184,6 @@
             if (savedLastLogin) {
                 state.lastLogin = savedLastLogin;
             }
-            
-            if (savedLanguage) {
-                state.isArabic = savedLanguage === 'ar';
-                updateLanguageUI();
-            }
-            
-            if (savedBooks) {
-                // يمكن تحميل الكتب المعدلة من localStorage إذا كنت تريد حفظ التغييرات
-                // const modifiedBooks = JSON.parse(savedBooks);
-                // books.splice(0, books.length, ...modifiedBooks);
-            }
         }
 
         // حفظ البيانات في localStorage
@@ -2094,7 +2197,6 @@
             if (state.lastLogin) {
                 localStorage.setItem('bookstore_last_login', state.lastLogin);
             }
-            localStorage.setItem('bookstore_language', state.isArabic ? 'ar' : 'en');
             localStorage.setItem('bookstore_books_data', JSON.stringify(books));
         }
 
@@ -2107,7 +2209,7 @@
 
         // إعداد معالجات الأحداث
         function setupEventListeners() {
-            // التنقل بين الأقسام
+            // التنقل بين الأقسام - الروابط العادية
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
@@ -2118,26 +2220,23 @@
                     navLinks.forEach(l => l.classList.remove('active'));
                     this.classList.add('active');
                     
+                    // إغلاق القائمة المتنقلة على الأجهزة الصغيرة
+                    closeMobileMenu();
+                    
                     // إظهار القسم المحدد
                     showSection(sectionId);
-                    
-                    // إغلاق القائمة المتنقلة على الأجهزة الصغيرة
-                    if (window.innerWidth <= 768) {
-                        document.getElementById('navLinks').classList.remove('active');
-                    }
                 });
             });
 
             // القائمة المتنقلة
-            document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-                document.getElementById('navLinks').classList.toggle('active');
-            });
+            document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
 
-            // تغيير اللغة
-            document.getElementById('langToggle').addEventListener('click', function() {
-                state.isArabic = !state.isArabic;
-                updateLanguageUI();
-                saveToLocalStorage();
+            // إغلاق القائمة المتنقلة عند النقر على رابط
+            const mobileNavLinks = document.querySelectorAll('#mobileNavLinks .nav-link');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    closeMobileMenu();
+                });
             });
 
             // تصفية الكتب حسب الفئة
@@ -2188,7 +2287,7 @@
                 const whatsappUrl = `https://wa.me/96181400899?text=${whatsappMessage}`;
                 
                 window.open(whatsappUrl, '_blank');
-                alert(state.isArabic ? 'سيتم فتح تطبيق واتساب لإرسال رسالتك. شكراً لتواصلك معنا!' : 'WhatsApp will open to send your message. Thank you for contacting us!');
+                alert('سيتم فتح تطبيق واتساب لإرسال رسالتك. شكراً لتواصلك معنا!');
                 
                 // إعادة تعيين النموذج
                 this.reset();
@@ -2263,23 +2362,21 @@
             // زر إتمام الطلب عبر واتساب
             document.getElementById('checkoutBtn').addEventListener('click', function() {
                 if (state.cart.length === 0) {
-                    alert(state.isArabic ? 'سلة التسوق فارغة. أضف بعض الكتب قبل إتمام الطلب.' : 'Your cart is empty. Add some books before checkout.');
+                    alert('سلة التسوق فارغة. أضف بعض الكتب قبل إتمام الطلب.');
                     return;
                 }
                 
-                let orderMessage = state.isArabic ? 
-                    `مرحباً، أريد طلب الكتب التالية:%0A%0A` :
-                    `Hello, I would like to order the following books:%0A%0A`;
+                let orderMessage = `مرحباً، أريد طلب الكتب التالية:%0A%0A`;
                 
                 state.cart.forEach((item, index) => {
                     const book = books.find(b => b.id === item.id);
-                    orderMessage += `${index + 1}. ${book.title} - ${item.quantity} ${state.isArabic ? 'نسخة' : 'copy'} - $${(book.price * item.quantity).toFixed(2)}%0A`;
+                    orderMessage += `${index + 1}. ${book.title} - ${item.quantity} نسخة - $${(book.price * item.quantity).toFixed(2)}%0A`;
                 });
                 
                 const cartTotal = calculateCartTotal();
-                orderMessage += `%0A${state.isArabic ? 'المجموع' : 'Total'}: $${cartTotal.total.toFixed(2)}%0A%0A`;
-                orderMessage += `${state.isArabic ? 'الاسم' : 'Name'}: ${state.currentUser ? state.currentUser.name : (state.isArabic ? 'زائر' : 'Guest')}%0A`;
-                orderMessage += `${state.isArabic ? 'رقم الهاتف' : 'Phone Number'}: ${state.currentUser ? state.currentUser.phone : (state.isArabic ? 'لم يتم التحديد' : 'Not specified')}`;
+                orderMessage += `%0Aالمجموع: $${cartTotal.total.toFixed(2)}%0A%0A`;
+                orderMessage += `الاسم: ${state.currentUser ? state.currentUser.name : 'زائر'}%0A`;
+                orderMessage += `رقم الهاتف: ${state.currentUser ? state.currentUser.phone : 'لم يتم التحديد'}`;
                 
                 const whatsappUrl = `https://wa.me/96181400899?text=${orderMessage}`;
                 window.open(whatsappUrl, '_blank');
@@ -2293,7 +2390,7 @@
                     document.getElementById('adminOverlay').classList.toggle('active');
                     renderBookAvailabilityControls();
                 } else {
-                    alert(state.isArabic ? 'يجب تسجيل الدخول للوصول إلى لوحة التحكم' : 'You must be logged in to access the admin panel');
+                    alert('يجب تسجيل الدخول للوصول إلى لوحة التحكم');
                 }
             });
 
@@ -2317,6 +2414,34 @@
             document.getElementById('editProfilePreview').addEventListener('click', function() {
                 document.getElementById('editProfilePicture').click();
             });
+
+            // تسجيل الخروج من القائمة المنسدلة
+            document.addEventListener('click', function(e) {
+                if (e.target.id === 'userLogout') {
+                    e.preventDefault();
+                    logout();
+                }
+            });
+        }
+
+        // تبديل القائمة المتنقلة
+        function toggleMobileMenu() {
+            state.mobileMenuOpen = !state.mobileMenuOpen;
+            const mobileNavLinks = document.getElementById('mobileNavLinks');
+            if (state.mobileMenuOpen) {
+                mobileNavLinks.classList.add('active');
+                document.getElementById('mobileMenuBtn').innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                mobileNavLinks.classList.remove('active');
+                document.getElementById('mobileMenuBtn').innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        }
+
+        // إغلاق القائمة المتنقلة
+        function closeMobileMenu() {
+            state.mobileMenuOpen = false;
+            document.getElementById('mobileNavLinks').classList.remove('active');
+            document.getElementById('mobileMenuBtn').innerHTML = '<i class="fas fa-bars"></i>';
         }
 
         // البحث عن الكتب
@@ -2343,7 +2468,7 @@
             
             // تحديث عدد مرات الدخول
             state.userLoginCount++;
-            state.lastLogin = new Date().toLocaleString(state.isArabic ? 'ar-LB' : 'en-US');
+            state.lastLogin = new Date().toLocaleString('ar-LB');
             
             // حفظ في localStorage
             saveToLocalStorage();
@@ -2351,7 +2476,7 @@
             // تحديث واجهة المستخدم
             updateUserUI();
             
-            alert(state.isArabic ? `مرحباً ${name}! تم تسجيل دخولك بنجاح.` : `Welcome ${name}! You have successfully logged in.`);
+            alert(`مرحباً ${name}! تم تسجيل دخولك بنجاح.`);
             
             // إعادة تعيين النموذج
             document.getElementById('loginForm').reset();
@@ -2370,7 +2495,7 @@
             saveToLocalStorage();
             updateUserUI();
             
-            alert(state.isArabic ? 'تم تحديث الملف الشخصي بنجاح!' : 'Profile updated successfully!');
+            alert('تم تحديث الملف الشخصي بنجاح!');
         }
 
         // تسجيل الخروج
@@ -2379,62 +2504,34 @@
             saveToLocalStorage();
             updateUserUI();
             
-            alert(state.isArabic ? 'تم تسجيل الخروج بنجاح' : 'Logged out successfully');
+            alert('تم تسجيل الخروج بنجاح');
             
             // العودة إلى قسم تسجيل الدخول
             showLoginSection();
+            
+            // إغلاق القائمة المنسدلة
+            const dropdown = document.getElementById('userDropdown');
+            if (dropdown) {
+                dropdown.classList.remove('active');
+            }
         }
 
         // تحديث واجهة المستخدم حسب حالة تسجيل الدخول
         function updateUserUI() {
-            const userProfileElement = document.querySelector('.user-profile');
+            const userProfileContainer = document.getElementById('userProfileContainer');
             const loginNavItem = document.getElementById('loginNavItem');
+            const mobileLoginNavItem = document.getElementById('mobileLoginNavItem');
             const userStats = document.getElementById('userStats');
-            const loginSection = document.getElementById('loginSection');
             
             if (state.currentUser) {
-                // تحديث الرأس
-                if (!userProfileElement) {
-                    const headerContent = document.querySelector('.header-content');
-                    const newUserProfile = document.createElement('div');
-                    newUserProfile.className = 'user-profile user-menu';
-                    newUserProfile.innerHTML = `
-                        <div class="user-avatar" id="headerUserAvatar">
-                            <img src="${state.currentUser.profileImage}" alt="صورة المستخدم">
-                        </div>
-                        <span>${state.currentUser.name}</span>
-                        <div class="dropdown-menu" id="userDropdown">
-                            <a href="#login" class="nav-link" data-section="login" data-ar="تعديل الملف الشخصي" data-en="Edit Profile">تعديل الملف الشخصي</a>
-                            <a href="#" id="userLogout" data-ar="تسجيل الخروج" data-en="Logout">تسجيل الخروج</a>
-                        </div>
-                    `;
-                    headerContent.insertBefore(newUserProfile, document.getElementById('navLinks'));
-                    
-                    // إضافة معالج الأحداث للملف الشخصي
-                    document.getElementById('headerUserAvatar').addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        document.getElementById('userDropdown').classList.toggle('active');
-                    });
-                    
-                    document.getElementById('userLogout').addEventListener('click', function(e) {
-                        e.preventDefault();
-                        logout();
-                    });
-                    
-                    // إغلاق القائمة المنسدلة عند النقر خارجها
-                    document.addEventListener('click', function(e) {
-                        const dropdown = document.getElementById('userDropdown');
-                        if (dropdown && !e.target.closest('.user-profile')) {
-                            dropdown.classList.remove('active');
-                        }
-                    });
-                } else {
-                    document.getElementById('headerUserAvatar').querySelector('img').src = state.currentUser.profileImage;
-                    userProfileElement.querySelector('span').textContent = state.currentUser.name;
-                }
+                // إظهار الملف الشخصي في الرأس
+                userProfileContainer.style.display = 'flex';
+                document.getElementById('headerUserAvatar').querySelector('img').src = state.currentUser.profileImage;
+                document.getElementById('userNameHeader').textContent = state.currentUser.name;
                 
                 // تحديث رابط تسجيل الدخول في القائمة
-                loginNavItem.querySelector('a').innerHTML = state.isArabic ? 'الملف الشخصي' : 'Profile';
+                loginNavItem.querySelector('a').innerHTML = 'الملف الشخصي';
+                mobileLoginNavItem.querySelector('a').innerHTML = 'الملف الشخصي';
                 
                 // تحديث قسم تسجيل الدخول
                 document.getElementById('userName').textContent = state.currentUser.name;
@@ -2448,13 +2545,12 @@
                 document.getElementById('editEmail').value = state.currentUser.email || '';
                 document.getElementById('editProfileImage').src = state.currentUser.profileImage;
             } else {
-                // إزالة الملف الشخصي من الرأس
-                if (userProfileElement) {
-                    userProfileElement.remove();
-                }
+                // إخفاء الملف الشخصي من الرأس
+                userProfileContainer.style.display = 'none';
                 
                 // إعادة رابط تسجيل الدخول
-                loginNavItem.querySelector('a').innerHTML = state.isArabic ? 'تسجيل الدخول' : 'Login';
+                loginNavItem.querySelector('a').innerHTML = 'تسجيل الدخول';
+                mobileLoginNavItem.querySelector('a').innerHTML = 'تسجيل الدخول';
                 
                 // إخفاء إحصائيات المستخدم
                 userStats.style.display = 'none';
@@ -2474,40 +2570,6 @@
         function showProfileEditSection() {
             document.getElementById('loginFormSection').style.display = 'none';
             document.getElementById('profileEditSection').style.display = 'block';
-        }
-
-        // تحديث واجهة اللغة
-        function updateLanguageUI() {
-            const langElements = document.querySelectorAll('[data-ar], [data-en]');
-            const currentLang = state.isArabic ? 'ar' : 'en';
-            const otherLang = state.isArabic ? 'en' : 'ar';
-            
-            // تحديث النصوص
-            langElements.forEach(element => {
-                if (element.hasAttribute(`data-${currentLang}`)) {
-                    const text = element.getAttribute(`data-${currentLang}`);
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                        element.placeholder = text;
-                    } else if (element.tagName === 'OPTION') {
-                        element.textContent = text;
-                    } else {
-                        element.textContent = text;
-                    }
-                }
-            });
-            
-            // تحديث زر اللغة
-            document.getElementById('currentLang').textContent = state.isArabic ? 'العربية' : 'English';
-            
-            // تحديث اتجاه النص
-            document.documentElement.dir = state.isArabic ? 'rtl' : 'ltr';
-            document.documentElement.lang = state.isArabic ? 'ar' : 'en';
-            
-            // تحديث عنوان المتجر
-            document.getElementById('store-title').textContent = state.isArabic ? 'متجر كتب محمد حلاق' : 'Mohammad Hallaq Bookstore';
-            
-            // إعادة عرض الكتب لتحديث النصوص
-            renderBooks();
         }
 
         // إظهار القسم النشط
@@ -2594,10 +2656,8 @@
             featuredBooksContainer.innerHTML = '';
             
             if (booksToShow.length === 0) {
-                const noBooksMessage = state.isArabic ? 
-                    'لا توجد كتب تطابق معايير البحث.' : 
-                    'No books match the search criteria.';
-                featuredBooksContainer.innerHTML = `<p style="text-align: center; grid-column: 1/-1; font-size: 18px;">${noBooksMessage}</p>`;
+                const noBooksMessage = 'لا توجد كتب تطابق معايير البحث.';
+                featuredBooksContainer.innerHTML = `<p style="text-align: center; grid-column: 1/-1; font-size: 18px; padding: 40px 0;">${noBooksMessage}</p>`;
                 paginationContainer.innerHTML = '';
                 return;
             }
@@ -2639,10 +2699,8 @@
             allBooksContainer.innerHTML = '';
             
             if (booksToShow.length === 0) {
-                const noBooksMessage = state.isArabic ? 
-                    'لا توجد كتب تطابق معايير البحث.' : 
-                    'No books match the search criteria.';
-                allBooksContainer.innerHTML = `<p style="text-align: center; grid-column: 1/-1; font-size: 18px;">${noBooksMessage}</p>`;
+                const noBooksMessage = 'لا توجد كتب تطابق معايير البحث.';
+                allBooksContainer.innerHTML = `<p style="text-align: center; grid-column: 1/-1; font-size: 18px; padding: 40px 0;">${noBooksMessage}</p>`;
                 paginationContainer.innerHTML = '';
                 return;
             }
@@ -2662,7 +2720,33 @@
             
             if (totalPages <= 1) return;
             
-            for (let i = 1; i <= totalPages; i++) {
+            // تحديد عدد أزرار الصفحات المرئية
+            const maxVisiblePages = 5;
+            let startPage = Math.max(1, state.currentPage - Math.floor(maxVisiblePages / 2));
+            let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+            
+            if (endPage - startPage + 1 < maxVisiblePages) {
+                startPage = Math.max(1, endPage - maxVisiblePages + 1);
+            }
+            
+            // زر الصفحة الأولى
+            if (startPage > 1) {
+                const firstPageBtn = document.createElement('button');
+                firstPageBtn.className = 'pagination-btn';
+                firstPageBtn.textContent = 'الأولى';
+                firstPageBtn.addEventListener('click', () => {
+                    state.currentPage = 1;
+                    if (type === 'featured') {
+                        renderBooks();
+                    } else {
+                        renderAllBooks();
+                    }
+                });
+                container.appendChild(firstPageBtn);
+            }
+            
+            // أزرار الصفحات
+            for (let i = startPage; i <= endPage; i++) {
                 const pageBtn = document.createElement('button');
                 pageBtn.className = `pagination-btn ${i === state.currentPage ? 'active' : ''}`;
                 pageBtn.textContent = i;
@@ -2676,6 +2760,22 @@
                 });
                 container.appendChild(pageBtn);
             }
+            
+            // زر الصفحة الأخيرة
+            if (endPage < totalPages) {
+                const lastPageBtn = document.createElement('button');
+                lastPageBtn.className = 'pagination-btn';
+                lastPageBtn.textContent = 'الأخيرة';
+                lastPageBtn.addEventListener('click', () => {
+                    state.currentPage = totalPages;
+                    if (type === 'featured') {
+                        renderBooks();
+                    } else {
+                        renderAllBooks();
+                    }
+                });
+                container.appendChild(lastPageBtn);
+            }
         }
 
         // إنشاء عنصر كتاب
@@ -2683,17 +2783,12 @@
             const bookElement = document.createElement('div');
             bookElement.className = 'book-card';
             
-            // إعداد نص التوفر
-            const availabilityText = state.isArabic ? 
-                (book.available ? 'متوفر' : 'غير متوفر') :
-                (book.available ? 'Available' : 'Unavailable');
-            
             bookElement.innerHTML = `
                 <div class="book-image">
                     <div class="book-slider" id="slider-${book.id}">
                         ${book.images.map(img => `<img src="${img}" alt="${book.title}">`).join('')}
                     </div>
-                    ${book.isNew ? '<div class="book-badge">' + (state.isArabic ? 'جديد' : 'New') + '</div>' : ''}
+                    ${book.isNew ? '<div class="book-badge">جديد</div>' : ''}
                     <button class="slider-btn slider-prev" data-slider="${book.id}">
                         <i class="fas fa-chevron-right"></i>
                     </button>
@@ -2710,8 +2805,8 @@
                     <p class="book-description">${book.description}</p>
                     <div class="book-meta">
                         <div>
-                            <span>${state.isArabic ? 'المشترين:' : 'Buyers:'} ${book.buyers.toLocaleString()}</span>
-                            <span> | ${state.isArabic ? 'القراء:' : 'Readers:'} ${book.readers.toLocaleString()}</span>
+                            <span>المشترين: ${book.buyers.toLocaleString()}</span>
+                            <span> | القراء: ${book.readers.toLocaleString()}</span>
                         </div>
                         <div class="book-rating">
                             <i class="fas fa-star" style="color: #f1c40f;"></i> ${book.rating}
@@ -2720,15 +2815,15 @@
                     <div class="book-price">
                         $${book.price.toFixed(2)}
                         ${book.oldPrice ? `<span class="book-old-price">$${book.oldPrice.toFixed(2)}</span>` : ''}
-                        ${book.discount ? `<span class="book-discount">${book.discount}% ${state.isArabic ? 'تخفيض' : 'off'}</span>` : ''}
+                        ${book.discount ? `<span class="book-discount">${book.discount}% تخفيض</span>` : ''}
                     </div>
                     <div class="book-actions">
                         <div class="availability ${book.available ? 'available' : 'unavailable'}">
                             <i class="fas ${book.available ? 'fa-check-circle' : 'fa-times-circle'}"></i>
-                            ${availabilityText}
+                            ${book.available ? 'متوفر' : 'غير متوفر'}
                         </div>
                         <button class="btn add-to-cart" data-id="${book.id}" ${!book.available ? 'disabled' : ''}>
-                            ${!book.available ? (state.isArabic ? 'غير متوفر' : 'Unavailable') : (state.isArabic ? 'أضف إلى السلة' : 'Add to Cart')}
+                            ${!book.available ? 'غير متوفر' : 'أضف إلى السلة'}
                         </button>
                     </div>
                 </div>
@@ -2807,9 +2902,7 @@
             
             // عرض رسالة تأكيد
             const book = books.find(b => b.id === bookId);
-            const message = state.isArabic ? 
-                `تمت إضافة "${book.title}" إلى سلة التسوق.` :
-                `"${book.title}" has been added to your cart.`;
+            const message = `تمت إضافة "${book.title}" إلى سلة التسوق.`;
             alert(message);
         }
 
@@ -2817,7 +2910,7 @@
         function updateCartUI() {
             const cartItemsContainer = document.getElementById('cartItems');
             const emptyCartMessage = document.getElementById('emptyCartMessage');
-            const cartCount = document.querySelector('.cart-count');
+            const cartCountElements = document.querySelectorAll('.cart-count');
             const summaryItemsCount = document.getElementById('summaryItemsCount');
             const summarySubtotal = document.getElementById('summarySubtotal');
             const summaryDiscount = document.getElementById('summaryDiscount');
@@ -2825,7 +2918,9 @@
             
             // تحديث عدد العناصر في السلة
             const totalItems = state.cart.reduce((sum, item) => sum + item.quantity, 0);
-            cartCount.textContent = totalItems;
+            cartCountElements.forEach(element => {
+                element.textContent = totalItems;
+            });
             
             // إذا كانت السلة فارغة
             if (state.cart.length === 0) {
@@ -2868,7 +2963,7 @@
                                 <button class="quantity-btn increase-quantity" data-id="${book.id}">+</button>
                             </div>
                             <button class="remove-item" data-id="${book.id}">
-                                <i class="fas fa-trash"></i> ${state.isArabic ? 'إزالة' : 'Remove'}
+                                <i class="fas fa-trash"></i> إزالة
                             </button>
                         </div>
                     </div>
@@ -2950,9 +3045,7 @@
                 btn.addEventListener('click', function() {
                     const bookId = parseInt(this.getAttribute('data-id'));
                     
-                    const confirmMessage = state.isArabic ? 
-                        'هل أنت متأكد من إزالة هذا الكتاب من السلة؟' :
-                        'Are you sure you want to remove this book from your cart?';
+                    const confirmMessage = 'هل أنت متأكد من إزالة هذا الكتاب من السلة؟';
                     
                     if (confirm(confirmMessage)) {
                         state.cart = state.cart.filter(item => item.id !== bookId);
@@ -3024,12 +3117,28 @@
         // إضافة دعم تغيير حجم النافذة
         window.addEventListener('resize', function() {
             if (window.innerWidth > 768) {
-                document.getElementById('navLinks').classList.remove('active');
+                closeMobileMenu();
             }
         });
 
         // تحديث القسم النشط عند تغيير التجزئة
         window.addEventListener('hashchange', showActiveSection);
+
+        // إضافة معالج الأحداث لفتح/إغلاق القائمة المنسدلة للمستخدم
+        document.addEventListener('click', function(e) {
+            const userProfileContainer = document.getElementById('userProfileContainer');
+            const userDropdown = document.getElementById('userDropdown');
+            
+            if (userProfileContainer && userDropdown) {
+                if (e.target.closest('#headerUserAvatar')) {
+                    // إذا تم النقر على الصورة الشخصية، قم بتبديل القائمة المنسدلة
+                    userDropdown.classList.toggle('active');
+                } else if (!e.target.closest('#userDropdown') && userDropdown.classList.contains('active')) {
+                    // إذا تم النقر خارج القائمة المنسدلة وكانت مفتوحة، قم بإغلاقها
+                    userDropdown.classList.remove('active');
+                }
+            }
+        });
     </script>
 </body>
 </html>
